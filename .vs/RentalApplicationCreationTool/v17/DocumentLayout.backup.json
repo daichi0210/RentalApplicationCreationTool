@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
+              "Title": "Form1.cs [\u30C7\u30B6\u30A4\u30F3]",
               "DocumentMoniker": "D:\\dev\\windows\\src\\repos\\RentalApplicationCreationTool\\RentalApplicationCreationTool\\Form1.cs",
               "RelativeDocumentMoniker": "RentalApplicationCreationTool\\Form1.cs",
-              "ToolTip": "D:\\dev\\windows\\src\\repos\\RentalApplicationCreationTool\\RentalApplicationCreationTool\\Form1.cs [Design]",
-              "RelativeToolTip": "RentalApplicationCreationTool\\Form1.cs [Design]",
+              "ToolTip": "D:\\dev\\windows\\src\\repos\\RentalApplicationCreationTool\\RentalApplicationCreationTool\\Form1.cs [\u30C7\u30B6\u30A4\u30F3]*",
+              "RelativeToolTip": "RentalApplicationCreationTool\\Form1.cs [\u30C7\u30B6\u30A4\u30F3]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-10T13:08:36.06Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
             }
           ]
         }
