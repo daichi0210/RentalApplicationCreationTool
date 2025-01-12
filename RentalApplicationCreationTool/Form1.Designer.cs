@@ -32,7 +32,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerApplicationDate = new DateTimePicker();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -40,35 +40,38 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
-            dateTimePicker4 = new DateTimePicker();
+            textBoxLastName = new TextBox();
+            textBoxTelephoneNumber = new TextBox();
+            textBoxAddress = new TextBox();
+            textBoxOrganizationName = new TextBox();
+            textBoxPurposeOfUse = new TextBox();
+            dateTimePickerDateOfUse = new DateTimePicker();
+            dateTimePickerUsageStartTime = new DateTimePicker();
+            dateTimePickerUsageEndTime = new DateTimePicker();
             groupBox1 = new GroupBox();
-            textBox8 = new TextBox();
-            checkBox10 = new CheckBox();
-            checkBox9 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
-            textBox7 = new TextBox();
+            textBoxOtherRooms = new TextBox();
+            checkBoxOtherRooms = new CheckBox();
+            checkBoxEntrance = new CheckBox();
+            checkBoxReferenceRoom = new CheckBox();
+            checkBoxGalley = new CheckBox();
+            checkBoxJapaneseStyleRoom1And2 = new CheckBox();
+            checkBoxJapaneseStyleRoom2 = new CheckBox();
+            checkBoxJapaneseStyleRoom1 = new CheckBox();
+            checkBoxLibrary = new CheckBox();
+            checkBoxConferenceRoom1And2 = new CheckBox();
+            checkBoxConferenceRoom2 = new CheckBox();
+            checkBoxConferenceRoom1 = new CheckBox();
+            textBoxNumberOfPeople = new TextBox();
             groupBox2 = new GroupBox();
-            checkBox11 = new CheckBox();
-            checkBox12 = new CheckBox();
-            checkBox13 = new CheckBox();
-            comboBox1 = new ComboBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
+            textBoxOtherEquipment = new TextBox();
+            checkBoxAirConditioningAndHeating = new CheckBox();
+            checkBoxOtherEquipment = new CheckBox();
+            checkBoxApplicationForUsageFeeExemption = new CheckBox();
+            comboBoxReasonForApplyingForExemption = new ComboBox();
+            textBoxFirstName = new TextBox();
+            label12 = new Label();
+            label13 = new Label();
+            checkedListBox1 = new CheckedListBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -109,12 +112,12 @@
             label4.TabIndex = 3;
             label4.Text = "住所";
             // 
-            // dateTimePicker1
+            // dateTimePickerApplicationDate
             // 
-            dateTimePicker1.Location = new Point(73, 12);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 4;
+            dateTimePickerApplicationDate.Location = new Point(73, 12);
+            dateTimePickerApplicationDate.Name = "dateTimePickerApplicationDate";
+            dateTimePickerApplicationDate.Size = new Size(200, 23);
+            dateTimePickerApplicationDate.TabIndex = 4;
             // 
             // label5
             // 
@@ -128,7 +131,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 157);
+            label6.Location = new Point(12, 160);
             label6.Name = "label6";
             label6.Size = new Size(55, 15);
             label6.TabIndex = 6;
@@ -137,11 +140,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 192);
+            label7.Location = new Point(12, 221);
             label7.Name = "label7";
-            label7.Size = new Size(55, 15);
+            label7.Size = new Size(43, 15);
             label7.TabIndex = 7;
-            label7.Text = "使用日時";
+            label7.Text = "使用日";
             // 
             // label8
             // 
@@ -155,7 +158,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(322, 218);
+            label9.Location = new Point(322, 250);
             label9.Name = "label9";
             label9.Size = new Size(55, 15);
             label9.TabIndex = 9;
@@ -164,7 +167,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(322, 244);
+            label10.Location = new Point(322, 273);
             label10.Name = "label10";
             label10.Size = new Size(79, 15);
             label10.TabIndex = 10;
@@ -173,298 +176,337 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(310, 361);
+            label11.Location = new Point(310, 390);
             label11.Name = "label11";
             label11.Size = new Size(55, 15);
             label11.TabIndex = 11;
             label11.Text = "免除申請";
             // 
-            // textBox1
+            // textBoxLastName
             // 
-            textBox1.Location = new Point(73, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 12;
+            textBoxLastName.Location = new Point(73, 41);
+            textBoxLastName.Name = "textBoxLastName";
+            textBoxLastName.PlaceholderText = "生涯";
+            textBoxLastName.Size = new Size(100, 23);
+            textBoxLastName.TabIndex = 12;
             // 
-            // textBox2
+            // textBoxTelephoneNumber
             // 
-            textBox2.Location = new Point(73, 70);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 13;
+            textBoxTelephoneNumber.Location = new Point(73, 70);
+            textBoxTelephoneNumber.Name = "textBoxTelephoneNumber";
+            textBoxTelephoneNumber.PlaceholderText = "３７－１２３４";
+            textBoxTelephoneNumber.Size = new Size(206, 23);
+            textBoxTelephoneNumber.TabIndex = 13;
             // 
-            // textBox3
+            // textBoxAddress
             // 
-            textBox3.Location = new Point(73, 99);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 14;
+            textBoxAddress.Location = new Point(73, 99);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.PlaceholderText = "福井市本堂町７－４";
+            textBoxAddress.Size = new Size(206, 23);
+            textBoxAddress.TabIndex = 14;
             // 
-            // textBox4
+            // textBoxOrganizationName
             // 
-            textBox4.Location = new Point(179, 99);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 15;
+            textBoxOrganizationName.Location = new Point(73, 128);
+            textBoxOrganizationName.Name = "textBoxOrganizationName";
+            textBoxOrganizationName.PlaceholderText = "運営審議会";
+            textBoxOrganizationName.Size = new Size(206, 23);
+            textBoxOrganizationName.TabIndex = 16;
             // 
-            // textBox5
+            // textBoxPurposeOfUse
             // 
-            textBox5.Location = new Point(73, 128);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 16;
+            textBoxPurposeOfUse.Location = new Point(73, 157);
+            textBoxPurposeOfUse.Name = "textBoxPurposeOfUse";
+            textBoxPurposeOfUse.PlaceholderText = "会議";
+            textBoxPurposeOfUse.Size = new Size(206, 23);
+            textBoxPurposeOfUse.TabIndex = 17;
             // 
-            // textBox6
+            // dateTimePickerDateOfUse
             // 
-            textBox6.Location = new Point(73, 157);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 17;
+            dateTimePickerDateOfUse.Location = new Point(73, 215);
+            dateTimePickerDateOfUse.Name = "dateTimePickerDateOfUse";
+            dateTimePickerDateOfUse.Size = new Size(200, 23);
+            dateTimePickerDateOfUse.TabIndex = 18;
             // 
-            // dateTimePicker2
+            // dateTimePickerUsageStartTime
             // 
-            dateTimePicker2.Location = new Point(73, 186);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 18;
+            dateTimePickerUsageStartTime.Format = DateTimePickerFormat.Time;
+            dateTimePickerUsageStartTime.Location = new Point(73, 244);
+            dateTimePickerUsageStartTime.Name = "dateTimePickerUsageStartTime";
+            dateTimePickerUsageStartTime.ShowUpDown = true;
+            dateTimePickerUsageStartTime.Size = new Size(100, 23);
+            dateTimePickerUsageStartTime.TabIndex = 19;
             // 
-            // dateTimePicker3
+            // dateTimePickerUsageEndTime
             // 
-            dateTimePicker3.Format = DateTimePickerFormat.Time;
-            dateTimePicker3.Location = new Point(73, 215);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.ShowUpDown = true;
-            dateTimePicker3.Size = new Size(200, 23);
-            dateTimePicker3.TabIndex = 19;
-            // 
-            // dateTimePicker4
-            // 
-            dateTimePicker4.Format = DateTimePickerFormat.Time;
-            dateTimePicker4.Location = new Point(73, 244);
-            dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.ShowUpDown = true;
-            dateTimePicker4.Size = new Size(200, 23);
-            dateTimePicker4.TabIndex = 20;
+            dateTimePickerUsageEndTime.Format = DateTimePickerFormat.Time;
+            dateTimePickerUsageEndTime.Location = new Point(73, 273);
+            dateTimePickerUsageEndTime.Name = "dateTimePickerUsageEndTime";
+            dateTimePickerUsageEndTime.ShowUpDown = true;
+            dateTimePickerUsageEndTime.Size = new Size(100, 23);
+            dateTimePickerUsageEndTime.TabIndex = 20;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox8);
-            groupBox1.Controls.Add(checkBox10);
-            groupBox1.Controls.Add(checkBox9);
-            groupBox1.Controls.Add(checkBox8);
-            groupBox1.Controls.Add(checkBox7);
-            groupBox1.Controls.Add(checkBox6);
-            groupBox1.Controls.Add(checkBox5);
-            groupBox1.Controls.Add(checkBox4);
-            groupBox1.Controls.Add(checkBox3);
-            groupBox1.Controls.Add(checkBox2);
-            groupBox1.Controls.Add(checkBox1);
+            groupBox1.Controls.Add(textBoxOtherRooms);
+            groupBox1.Controls.Add(checkBoxOtherRooms);
+            groupBox1.Controls.Add(checkBoxEntrance);
+            groupBox1.Controls.Add(checkBoxReferenceRoom);
+            groupBox1.Controls.Add(checkBoxGalley);
+            groupBox1.Controls.Add(checkBoxJapaneseStyleRoom1And2);
+            groupBox1.Controls.Add(checkBoxJapaneseStyleRoom2);
+            groupBox1.Controls.Add(checkBoxJapaneseStyleRoom1);
+            groupBox1.Controls.Add(checkBoxLibrary);
+            groupBox1.Controls.Add(checkBoxConferenceRoom1And2);
+            groupBox1.Controls.Add(checkBoxConferenceRoom2);
+            groupBox1.Controls.Add(checkBoxConferenceRoom1);
             groupBox1.Location = new Point(409, 44);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 163);
+            groupBox1.Size = new Size(309, 192);
             groupBox1.TabIndex = 21;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "部屋";
             // 
-            // textBox8
+            // textBoxOtherRooms
             // 
-            textBox8.Location = new Point(191, 120);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 11;
+            textBoxOtherRooms.Location = new Point(69, 145);
+            textBoxOtherRooms.Name = "textBoxOtherRooms";
+            textBoxOtherRooms.Size = new Size(100, 23);
+            textBoxOtherRooms.TabIndex = 11;
             // 
-            // checkBox10
+            // checkBoxOtherRooms
             // 
-            checkBox10.AutoSize = true;
-            checkBox10.Location = new Point(128, 122);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Size = new Size(57, 19);
-            checkBox10.TabIndex = 9;
-            checkBox10.Text = "その他";
-            checkBox10.UseVisualStyleBackColor = true;
+            checkBoxOtherRooms.AutoSize = true;
+            checkBoxOtherRooms.Location = new Point(6, 147);
+            checkBoxOtherRooms.Name = "checkBoxOtherRooms";
+            checkBoxOtherRooms.Size = new Size(57, 19);
+            checkBoxOtherRooms.TabIndex = 9;
+            checkBoxOtherRooms.Text = "その他";
+            checkBoxOtherRooms.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // checkBoxEntrance
             // 
-            checkBox9.AutoSize = true;
-            checkBox9.Location = new Point(128, 97);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(62, 19);
-            checkBox9.TabIndex = 8;
-            checkBox9.Text = "資料室";
-            checkBox9.UseVisualStyleBackColor = true;
+            checkBoxEntrance.AutoSize = true;
+            checkBoxEntrance.Location = new Point(128, 122);
+            checkBoxEntrance.Name = "checkBoxEntrance";
+            checkBoxEntrance.Size = new Size(50, 19);
+            checkBoxEntrance.TabIndex = 8;
+            checkBoxEntrance.Text = "玄関";
+            checkBoxEntrance.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // checkBoxReferenceRoom
             // 
-            checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(6, 122);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(62, 19);
-            checkBox8.TabIndex = 7;
-            checkBox8.Text = "調理室";
-            checkBox8.UseVisualStyleBackColor = true;
+            checkBoxReferenceRoom.AutoSize = true;
+            checkBoxReferenceRoom.Location = new Point(128, 97);
+            checkBoxReferenceRoom.Name = "checkBoxReferenceRoom";
+            checkBoxReferenceRoom.Size = new Size(62, 19);
+            checkBoxReferenceRoom.TabIndex = 8;
+            checkBoxReferenceRoom.Text = "資料室";
+            checkBoxReferenceRoom.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // checkBoxGalley
             // 
-            checkBox7.AutoSize = true;
-            checkBox7.Location = new Point(128, 72);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(74, 19);
-            checkBox7.TabIndex = 6;
-            checkBox7.Text = "和室①②";
-            checkBox7.UseVisualStyleBackColor = true;
+            checkBoxGalley.AutoSize = true;
+            checkBoxGalley.Location = new Point(6, 122);
+            checkBoxGalley.Name = "checkBoxGalley";
+            checkBoxGalley.Size = new Size(62, 19);
+            checkBoxGalley.TabIndex = 7;
+            checkBoxGalley.Text = "調理室";
+            checkBoxGalley.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // checkBoxJapaneseStyleRoom1And2
             // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(128, 47);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(62, 19);
-            checkBox6.TabIndex = 5;
-            checkBox6.Text = "和室②";
-            checkBox6.UseVisualStyleBackColor = true;
+            checkBoxJapaneseStyleRoom1And2.AutoSize = true;
+            checkBoxJapaneseStyleRoom1And2.Location = new Point(128, 72);
+            checkBoxJapaneseStyleRoom1And2.Name = "checkBoxJapaneseStyleRoom1And2";
+            checkBoxJapaneseStyleRoom1And2.Size = new Size(74, 19);
+            checkBoxJapaneseStyleRoom1And2.TabIndex = 6;
+            checkBoxJapaneseStyleRoom1And2.Text = "和室①②";
+            checkBoxJapaneseStyleRoom1And2.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkBoxJapaneseStyleRoom2
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(128, 22);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(62, 19);
-            checkBox5.TabIndex = 4;
-            checkBox5.Text = "和室①";
-            checkBox5.UseVisualStyleBackColor = true;
+            checkBoxJapaneseStyleRoom2.AutoSize = true;
+            checkBoxJapaneseStyleRoom2.Location = new Point(128, 47);
+            checkBoxJapaneseStyleRoom2.Name = "checkBoxJapaneseStyleRoom2";
+            checkBoxJapaneseStyleRoom2.Size = new Size(62, 19);
+            checkBoxJapaneseStyleRoom2.TabIndex = 5;
+            checkBoxJapaneseStyleRoom2.Text = "和室②";
+            checkBoxJapaneseStyleRoom2.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBoxJapaneseStyleRoom1
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(6, 97);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(62, 19);
-            checkBox4.TabIndex = 3;
-            checkBox4.Text = "図書室";
-            checkBox4.UseVisualStyleBackColor = true;
+            checkBoxJapaneseStyleRoom1.AutoSize = true;
+            checkBoxJapaneseStyleRoom1.Location = new Point(128, 22);
+            checkBoxJapaneseStyleRoom1.Name = "checkBoxJapaneseStyleRoom1";
+            checkBoxJapaneseStyleRoom1.Size = new Size(62, 19);
+            checkBoxJapaneseStyleRoom1.TabIndex = 4;
+            checkBoxJapaneseStyleRoom1.Text = "和室①";
+            checkBoxJapaneseStyleRoom1.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxLibrary
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(6, 72);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(86, 19);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "会議室①②";
-            checkBox3.UseVisualStyleBackColor = true;
+            checkBoxLibrary.AutoSize = true;
+            checkBoxLibrary.Location = new Point(6, 97);
+            checkBoxLibrary.Name = "checkBoxLibrary";
+            checkBoxLibrary.Size = new Size(62, 19);
+            checkBoxLibrary.TabIndex = 3;
+            checkBoxLibrary.Text = "図書室";
+            checkBoxLibrary.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxConferenceRoom1And2
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(6, 47);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(74, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "会議室②";
-            checkBox2.UseVisualStyleBackColor = true;
+            checkBoxConferenceRoom1And2.AutoSize = true;
+            checkBoxConferenceRoom1And2.Location = new Point(6, 72);
+            checkBoxConferenceRoom1And2.Name = "checkBoxConferenceRoom1And2";
+            checkBoxConferenceRoom1And2.Size = new Size(86, 19);
+            checkBoxConferenceRoom1And2.TabIndex = 2;
+            checkBoxConferenceRoom1And2.Text = "会議室①②";
+            checkBoxConferenceRoom1And2.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBoxConferenceRoom2
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(6, 22);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(74, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "会議室①";
-            checkBox1.UseVisualStyleBackColor = true;
+            checkBoxConferenceRoom2.AutoSize = true;
+            checkBoxConferenceRoom2.Location = new Point(6, 47);
+            checkBoxConferenceRoom2.Name = "checkBoxConferenceRoom2";
+            checkBoxConferenceRoom2.Size = new Size(74, 19);
+            checkBoxConferenceRoom2.TabIndex = 1;
+            checkBoxConferenceRoom2.Text = "会議室②";
+            checkBoxConferenceRoom2.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // checkBoxConferenceRoom1
             // 
-            textBox7.Location = new Point(409, 215);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 22;
+            checkBoxConferenceRoom1.AutoSize = true;
+            checkBoxConferenceRoom1.Location = new Point(6, 22);
+            checkBoxConferenceRoom1.Name = "checkBoxConferenceRoom1";
+            checkBoxConferenceRoom1.Size = new Size(74, 19);
+            checkBoxConferenceRoom1.TabIndex = 0;
+            checkBoxConferenceRoom1.Text = "会議室①";
+            checkBoxConferenceRoom1.UseVisualStyleBackColor = true;
+            // 
+            // textBoxNumberOfPeople
+            // 
+            textBoxNumberOfPeople.Location = new Point(409, 244);
+            textBoxNumberOfPeople.Name = "textBoxNumberOfPeople";
+            textBoxNumberOfPeople.Size = new Size(100, 23);
+            textBoxNumberOfPeople.TabIndex = 22;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox9);
-            groupBox2.Controls.Add(checkBox11);
-            groupBox2.Controls.Add(checkBox12);
-            groupBox2.Location = new Point(409, 244);
+            groupBox2.Controls.Add(textBoxOtherEquipment);
+            groupBox2.Controls.Add(checkBoxAirConditioningAndHeating);
+            groupBox2.Controls.Add(checkBoxOtherEquipment);
+            groupBox2.Location = new Point(409, 273);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(309, 82);
             groupBox2.TabIndex = 23;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            groupBox2.Text = "設備";
             // 
-            // checkBox11
+            // textBoxOtherEquipment
             // 
-            checkBox11.AutoSize = true;
-            checkBox11.Location = new Point(6, 22);
-            checkBox11.Name = "checkBox11";
-            checkBox11.Size = new Size(62, 19);
-            checkBox11.TabIndex = 10;
-            checkBox11.Text = "冷暖房";
-            checkBox11.UseVisualStyleBackColor = true;
+            textBoxOtherEquipment.Location = new Point(69, 45);
+            textBoxOtherEquipment.Name = "textBoxOtherEquipment";
+            textBoxOtherEquipment.Size = new Size(100, 23);
+            textBoxOtherEquipment.TabIndex = 11;
             // 
-            // checkBox12
+            // checkBoxAirConditioningAndHeating
             // 
-            checkBox12.AutoSize = true;
-            checkBox12.Location = new Point(6, 47);
-            checkBox12.Name = "checkBox12";
-            checkBox12.Size = new Size(57, 19);
-            checkBox12.TabIndex = 0;
-            checkBox12.Text = "その他";
-            checkBox12.UseVisualStyleBackColor = true;
+            checkBoxAirConditioningAndHeating.AutoSize = true;
+            checkBoxAirConditioningAndHeating.Location = new Point(6, 22);
+            checkBoxAirConditioningAndHeating.Name = "checkBoxAirConditioningAndHeating";
+            checkBoxAirConditioningAndHeating.Size = new Size(62, 19);
+            checkBoxAirConditioningAndHeating.TabIndex = 10;
+            checkBoxAirConditioningAndHeating.Text = "冷暖房";
+            checkBoxAirConditioningAndHeating.UseVisualStyleBackColor = true;
             // 
-            // checkBox13
+            // checkBoxOtherEquipment
             // 
-            checkBox13.AutoSize = true;
-            checkBox13.Location = new Point(409, 360);
-            checkBox13.Name = "checkBox13";
-            checkBox13.Size = new Size(120, 19);
-            checkBox13.TabIndex = 1;
-            checkBox13.Text = "使用料の免除申請";
-            checkBox13.UseVisualStyleBackColor = true;
+            checkBoxOtherEquipment.AutoSize = true;
+            checkBoxOtherEquipment.Location = new Point(6, 47);
+            checkBoxOtherEquipment.Name = "checkBoxOtherEquipment";
+            checkBoxOtherEquipment.Size = new Size(57, 19);
+            checkBoxOtherEquipment.TabIndex = 0;
+            checkBoxOtherEquipment.Text = "その他";
+            checkBoxOtherEquipment.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // checkBoxApplicationForUsageFeeExemption
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "1", "2", "3" });
-            comboBox1.Location = new Point(579, 358);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 24;
+            checkBoxApplicationForUsageFeeExemption.AutoSize = true;
+            checkBoxApplicationForUsageFeeExemption.Location = new Point(409, 389);
+            checkBoxApplicationForUsageFeeExemption.Name = "checkBoxApplicationForUsageFeeExemption";
+            checkBoxApplicationForUsageFeeExemption.Size = new Size(120, 19);
+            checkBoxApplicationForUsageFeeExemption.TabIndex = 1;
+            checkBoxApplicationForUsageFeeExemption.Text = "使用料の免除申請";
+            checkBoxApplicationForUsageFeeExemption.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // comboBoxReasonForApplyingForExemption
             // 
-            textBox9.Location = new Point(69, 45);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(100, 23);
-            textBox9.TabIndex = 11;
+            comboBoxReasonForApplyingForExemption.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxReasonForApplyingForExemption.FormattingEnabled = true;
+            comboBoxReasonForApplyingForExemption.Items.AddRange(new object[] { "", "1", "2", "3" });
+            comboBoxReasonForApplyingForExemption.Location = new Point(535, 387);
+            comboBoxReasonForApplyingForExemption.Name = "comboBoxReasonForApplyingForExemption";
+            comboBoxReasonForApplyingForExemption.Size = new Size(121, 23);
+            comboBoxReasonForApplyingForExemption.TabIndex = 24;
             // 
-            // textBox10
+            // textBoxFirstName
             // 
-            textBox10.Location = new Point(179, 41);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(100, 23);
-            textBox10.TabIndex = 25;
+            textBoxFirstName.Location = new Point(179, 41);
+            textBoxFirstName.Name = "textBoxFirstName";
+            textBoxFirstName.PlaceholderText = "太郎";
+            textBoxFirstName.Size = new Size(100, 23);
+            textBoxFirstName.TabIndex = 25;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 250);
+            label12.Name = "label12";
+            label12.Size = new Size(55, 15);
+            label12.TabIndex = 26;
+            label12.Text = "開始時刻";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 279);
+            label13.Name = "label13";
+            label13.Size = new Size(55, 15);
+            label13.TabIndex = 27;
+            label13.Text = "終了時刻";
+            // 
+            // checkedListBox1
+            // 
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Location = new Point(73, 320);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(120, 94);
+            checkedListBox1.TabIndex = 28;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox10);
-            Controls.Add(comboBox1);
-            Controls.Add(checkBox13);
+            Controls.Add(checkedListBox1);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(textBoxFirstName);
+            Controls.Add(comboBoxReasonForApplyingForExemption);
+            Controls.Add(checkBoxApplicationForUsageFeeExemption);
             Controls.Add(groupBox2);
-            Controls.Add(textBox7);
+            Controls.Add(textBoxNumberOfPeople);
             Controls.Add(groupBox1);
-            Controls.Add(dateTimePicker4);
-            Controls.Add(dateTimePicker3);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(dateTimePickerUsageEndTime);
+            Controls.Add(dateTimePickerUsageStartTime);
+            Controls.Add(dateTimePickerDateOfUse);
+            Controls.Add(textBoxPurposeOfUse);
+            Controls.Add(textBoxOrganizationName);
+            Controls.Add(textBoxAddress);
+            Controls.Add(textBoxTelephoneNumber);
+            Controls.Add(textBoxLastName);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -472,7 +514,7 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dateTimePickerApplicationDate);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -493,7 +535,7 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerApplicationDate;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -501,34 +543,37 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker3;
-        private DateTimePicker dateTimePicker4;
+        private TextBox textBoxLastName;
+        private TextBox textBoxTelephoneNumber;
+        private TextBox textBoxAddress;
+        private TextBox textBoxOrganizationName;
+        private TextBox textBoxPurposeOfUse;
+        private DateTimePicker dateTimePickerDateOfUse;
+        private DateTimePicker dateTimePickerUsageStartTime;
+        private DateTimePicker dateTimePickerUsageEndTime;
         private GroupBox groupBox1;
-        private CheckBox checkBox10;
-        private CheckBox checkBox9;
-        private CheckBox checkBox8;
-        private CheckBox checkBox7;
-        private CheckBox checkBox6;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
-        private TextBox textBox8;
-        private TextBox textBox7;
+        private CheckBox checkBoxOtherRooms;
+        private CheckBox checkBoxReferenceRoom;
+        private CheckBox checkBoxGalley;
+        private CheckBox checkBoxJapaneseStyleRoom1And2;
+        private CheckBox checkBoxJapaneseStyleRoom2;
+        private CheckBox checkBoxJapaneseStyleRoom1;
+        private CheckBox checkBoxLibrary;
+        private CheckBox checkBoxConferenceRoom1And2;
+        private CheckBox checkBoxConferenceRoom2;
+        private CheckBox checkBoxConferenceRoom1;
+        private TextBox textBoxOtherRooms;
+        private TextBox textBoxNumberOfPeople;
         private GroupBox groupBox2;
-        private CheckBox checkBox11;
-        private CheckBox checkBox12;
-        private CheckBox checkBox13;
-        private ComboBox comboBox1;
-        private TextBox textBox9;
-        private TextBox textBox10;
+        private CheckBox checkBoxAirConditioningAndHeating;
+        private CheckBox checkBoxOtherEquipment;
+        private CheckBox checkBoxApplicationForUsageFeeExemption;
+        private ComboBox comboBoxReasonForApplyingForExemption;
+        private TextBox textBoxOtherEquipment;
+        private TextBox textBoxFirstName;
+        private Label label12;
+        private Label label13;
+        private CheckBox checkBoxEntrance;
+        private CheckedListBox checkedListBox1;
     }
 }
