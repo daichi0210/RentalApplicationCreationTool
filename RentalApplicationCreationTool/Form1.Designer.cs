@@ -43,7 +43,7 @@
             textBoxOrganizationName = new TextBox();
             textBoxPurposeOfUse = new TextBox();
             dateTimePickerDateOfUse = new DateTimePicker();
-            groupBox1 = new GroupBox();
+            groupBoxRoomName = new GroupBox();
             textBoxOtherRooms = new TextBox();
             checkBoxOtherRooms = new CheckBox();
             checkBoxGalley = new CheckBox();
@@ -76,7 +76,7 @@
             label8 = new Label();
             button2 = new Button();
             button3 = new Button();
-            groupBox1.SuspendLayout();
+            groupBoxRoomName.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -208,22 +208,22 @@
             dateTimePickerDateOfUse.Size = new Size(126, 23);
             dateTimePickerDateOfUse.TabIndex = 18;
             // 
-            // groupBox1
+            // groupBoxRoomName
             // 
-            groupBox1.Controls.Add(textBoxOtherRooms);
-            groupBox1.Controls.Add(checkBoxOtherRooms);
-            groupBox1.Controls.Add(checkBoxGalley);
-            groupBox1.Controls.Add(checkBoxJapaneseStyleRoom2);
-            groupBox1.Controls.Add(checkBoxJapaneseStyleRoom1);
-            groupBox1.Controls.Add(checkBoxLibrary);
-            groupBox1.Controls.Add(checkBoxConferenceRoom2);
-            groupBox1.Controls.Add(checkBoxConferenceRoom1);
-            groupBox1.Location = new Point(363, 47);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(297, 145);
-            groupBox1.TabIndex = 21;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "使用室名";
+            groupBoxRoomName.Controls.Add(textBoxOtherRooms);
+            groupBoxRoomName.Controls.Add(checkBoxOtherRooms);
+            groupBoxRoomName.Controls.Add(checkBoxGalley);
+            groupBoxRoomName.Controls.Add(checkBoxJapaneseStyleRoom2);
+            groupBoxRoomName.Controls.Add(checkBoxJapaneseStyleRoom1);
+            groupBoxRoomName.Controls.Add(checkBoxLibrary);
+            groupBoxRoomName.Controls.Add(checkBoxConferenceRoom2);
+            groupBoxRoomName.Controls.Add(checkBoxConferenceRoom1);
+            groupBoxRoomName.Location = new Point(363, 47);
+            groupBoxRoomName.Name = "groupBoxRoomName";
+            groupBoxRoomName.Size = new Size(297, 145);
+            groupBoxRoomName.TabIndex = 21;
+            groupBoxRoomName.TabStop = false;
+            groupBoxRoomName.Text = "使用室名";
             // 
             // textBoxOtherRooms
             // 
@@ -567,16 +567,18 @@
             Controls.Add(button1);
             Controls.Add(groupBox2);
             Controls.Add(textBoxNumberOfPeople);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxRoomName);
             Controls.Add(textBoxPurposeOfUse);
             Controls.Add(label9);
             Controls.Add(label6);
             Controls.Add(dateTimePickerApplicationDate);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Text = "公民館使用申請書　作成ツール";
+            groupBoxRoomName.ResumeLayout(false);
+            groupBoxRoomName.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -606,7 +608,7 @@
         private DateTimePicker dateTimePickerDateOfUse;
         private DateTimePicker dateTimePickerUsageStartTime;
         private DateTimePicker dateTimePickerUsageEndTime;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxRoomName;
         private CheckBox checkBoxOtherRooms;
         private CheckBox checkBoxGalley;
         private CheckBox checkBoxJapaneseStyleRoom2;
