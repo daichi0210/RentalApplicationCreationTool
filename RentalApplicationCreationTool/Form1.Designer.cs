@@ -53,7 +53,7 @@
             checkBoxConferenceRoom2 = new CheckBox();
             checkBoxConferenceRoom1 = new CheckBox();
             textBoxNumberOfPeople = new TextBox();
-            groupBox2 = new GroupBox();
+            groupBoxAuxiliaryEquipmentUsed = new GroupBox();
             textBoxOtherEquipment = new TextBox();
             checkBoxAirConditioningAndHeating = new CheckBox();
             checkBoxOtherEquipment = new CheckBox();
@@ -77,7 +77,7 @@
             button2 = new Button();
             button3 = new Button();
             groupBoxRoomName.SuspendLayout();
-            groupBox2.SuspendLayout();
+            groupBoxAuxiliaryEquipmentUsed.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             SuspendLayout();
@@ -313,17 +313,17 @@
             textBoxNumberOfPeople.Size = new Size(37, 23);
             textBoxNumberOfPeople.TabIndex = 22;
             // 
-            // groupBox2
+            // groupBoxAuxiliaryEquipmentUsed
             // 
-            groupBox2.Controls.Add(textBoxOtherEquipment);
-            groupBox2.Controls.Add(checkBoxAirConditioningAndHeating);
-            groupBox2.Controls.Add(checkBoxOtherEquipment);
-            groupBox2.Location = new Point(363, 204);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(297, 87);
-            groupBox2.TabIndex = 23;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "使用附属設備";
+            groupBoxAuxiliaryEquipmentUsed.Controls.Add(textBoxOtherEquipment);
+            groupBoxAuxiliaryEquipmentUsed.Controls.Add(checkBoxAirConditioningAndHeating);
+            groupBoxAuxiliaryEquipmentUsed.Controls.Add(checkBoxOtherEquipment);
+            groupBoxAuxiliaryEquipmentUsed.Location = new Point(363, 204);
+            groupBoxAuxiliaryEquipmentUsed.Name = "groupBoxAuxiliaryEquipmentUsed";
+            groupBoxAuxiliaryEquipmentUsed.Size = new Size(297, 87);
+            groupBoxAuxiliaryEquipmentUsed.TabIndex = 23;
+            groupBoxAuxiliaryEquipmentUsed.TabStop = false;
+            groupBoxAuxiliaryEquipmentUsed.Text = "使用附属設備";
             // 
             // textBoxOtherEquipment
             // 
@@ -565,7 +565,7 @@
             Controls.Add(groupBox3);
             Controls.Add(label17);
             Controls.Add(button1);
-            Controls.Add(groupBox2);
+            Controls.Add(groupBoxAuxiliaryEquipmentUsed);
             Controls.Add(textBoxNumberOfPeople);
             Controls.Add(groupBoxRoomName);
             Controls.Add(textBoxPurposeOfUse);
@@ -579,8 +579,8 @@
             Text = "公民館使用申請書　作成ツール";
             groupBoxRoomName.ResumeLayout(false);
             groupBoxRoomName.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            groupBoxAuxiliaryEquipmentUsed.ResumeLayout(false);
+            groupBoxAuxiliaryEquipmentUsed.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -618,7 +618,7 @@
         private CheckBox checkBoxConferenceRoom1;
         private TextBox textBoxOtherRooms;
         private TextBox textBoxNumberOfPeople;
-        private GroupBox groupBox2;
+        private GroupBox groupBoxAuxiliaryEquipmentUsed;
         private CheckBox checkBoxAirConditioningAndHeating;
         private CheckBox checkBoxOtherEquipment;
         private ComboBox comboBoxReasonForApplyingForExemption;

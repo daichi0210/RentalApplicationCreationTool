@@ -47,9 +47,9 @@ namespace RentalApplicationCreationTool
             string startMinutes;        // 開始時刻（分）
             string endTime;             // 終了時刻（時）
             string endMinutes;          // 終了時刻（分）
-            string roomName;            // 使用室名
-            string auxiliaryEquipmentUsed;      // 使用附属設備
-            string reasonForApplyingForExemption;  // 使用料の免除申請
+            string roomName = "";       // 使用室名
+            string auxiliaryEquipmentUsed = "";     // 使用附属設備
+            string reasonForApplyingForExemption;   // 使用料の免除申請
 
 
 
@@ -67,7 +67,6 @@ namespace RentalApplicationCreationTool
             purposeOfUse = textBoxPurposeOfUse.Text;
             // 使用人数を代入
             numberOfPeople = textBoxNumberOfPeople.Text;
-
             // 使用日を代入
             dateOfUse = dateTimePickerDateOfUse.Value.ToString();
             // 開始時刻（時）を代入
@@ -82,51 +81,55 @@ namespace RentalApplicationCreationTool
 
             //★★★要理解
             // 使用室名を代入
-            string roomNameList = "";
             //var roomNameList = new List<CheckBox>();
             //var roomNameList = new List<Control>();
-
-
             //★部屋名を逆順で追加する
             //★会議室①と会議室②が追加された場合、会議室①②にする
             //★複数の部屋が選択されている場合、句点で区切るようにする
             foreach (CheckBox cb in groupBoxRoomName.Controls.OfType<CheckBox>())
             {
+                AddToList list = new AddToList();
+
                 if (cb.Checked)
                 {
                     if (cb.Text == "その他")
                     {
-                        //MessageBox.Show(textBoxOtherRooms.Text);
-                        roomNameList += textBoxOtherRooms.Text;
+                        roomName += list.TextFormatting(roomName, textBoxOtherRooms.Text);
                     }
                     else
                     {
-                        //MessageBox.Show(cb.Text);
-                        roomNameList += cb.Text;
+                        roomName += list.TextFormatting(roomName, cb.Text);
                     }
                 }
             }
-            MessageBox.Show(roomNameList);
+            // 使用室名を確認
+            //if (checkBoxConferenceRoom1.Checked && checkBoxConferenceRoom2.Checked)
+            //{
+            //    MessageBox.Show("会議室①②");
+            //}
+            //if (checkBoxJapaneseStyleRoom1.Checked && checkBoxJapaneseStyleRoom2.Checked)
+            //{
+            //    MessageBox.Show("和室①②");
+            //}
 
 
-            if (groupBoxRoomName.Controls.Contains(comboBoxReasonForApplyingForExemption))
-            //if (groupBox1 != null)
-            {
-                roomName = "使用室名が選択されています";
-            }
-            else
-            {
-                roomName = "";
-            }
 
             // 使用附属設備を代入
-            if (groupBox2 != null)
+            foreach (CheckBox cb in groupBoxAuxiliaryEquipmentUsed.Controls.OfType<CheckBox>())
             {
-                auxiliaryEquipmentUsed = "設備を貸し出します";
-            }
-            else
-            {
-                auxiliaryEquipmentUsed = "";
+                AddToList list = new AddToList();
+
+                if (cb.Checked)
+                {
+                    if (cb.Text == "その他")
+                    {
+                        auxiliaryEquipmentUsed += list.TextFormatting(auxiliaryEquipmentUsed, textBoxOtherEquipment.Text);
+                    }
+                    else
+                    {
+                        auxiliaryEquipmentUsed += list.TextFormatting(auxiliaryEquipmentUsed, cb.Text);
+                    }
+                }
             }
 
             // 使用料の免除申請を代入
@@ -145,29 +148,9 @@ namespace RentalApplicationCreationTool
             //MessageBox.Show(startMinutes);
             //MessageBox.Show(endTime);
             //MessageBox.Show(endMinutes);
-            //MessageBox.Show(roomName);
-            //MessageBox.Show(auxiliaryEquipmentUsed);
-            //MessageBox.Show(reasonForApplyingForExemption);
-
-
-
-
-            // 使用室名を確認
-            //if (checkBoxConferenceRoom1.Checked && checkBoxConferenceRoom2.Checked)
-            //{
-            //    MessageBox.Show("会議室①②");
-            //}
-            //if (checkBoxJapaneseStyleRoom1.Checked && checkBoxJapaneseStyleRoom2.Checked)
-            //{
-            //    MessageBox.Show("和室①②");
-            //}
-
-
-
-            string otherEquipment;      // その他
-            string rooms = null;        // 使用室名
-            string feeExemption;        // 免除申請
-            string reasonForExemption;  // 免除理由
+            MessageBox.Show(roomName);
+            MessageBox.Show(auxiliaryEquipmentUsed);
+            MessageBox.Show(reasonForApplyingForExemption);
 
 
             //if (int.Parse(comboBoxApplicationYear.Text) < 10)
