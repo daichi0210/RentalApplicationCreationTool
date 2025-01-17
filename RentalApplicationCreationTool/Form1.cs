@@ -377,5 +377,11 @@ namespace RentalApplicationCreationTool
 
             // ÉfÅ[É^Çç∑ÇµçûÇﬁ
         }
+
+        private void buttonUserList_Click(object sender, EventArgs e)
+        {
+            FormUserList formUserList = new FormUserList();
+            formUserList.ShowDialog();
+        }
     }
 }

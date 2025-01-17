@@ -15,3 +15,4 @@ D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreation
 D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\obj\Debug\net8.0-windows\RentalApplicationCreationTool.pdb
 D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\obj\Debug\net8.0-windows\RentalApplicationCreationTool.genruntimeconfig.cache
 D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\obj\Debug\net8.0-windows\ref\RentalApplicationCreationTool.dll
+D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\obj\Debug\net8.0-windows\RentalApplicationCreationTool.FormUserList.resources

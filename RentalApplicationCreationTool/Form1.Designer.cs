@@ -75,7 +75,7 @@
             groupBox4 = new GroupBox();
             label8 = new Label();
             button2 = new Button();
-            button3 = new Button();
+            buttonUserList = new Button();
             groupBoxRoomName.SuspendLayout();
             groupBoxAuxiliaryEquipmentUsed.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -541,21 +541,22 @@
             button2.Text = "使用者登録";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonUserList
             // 
-            button3.Location = new Point(444, 360);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 40;
-            button3.Text = "使用者読込";
-            button3.UseVisualStyleBackColor = true;
+            buttonUserList.Location = new Point(444, 360);
+            buttonUserList.Name = "buttonUserList";
+            buttonUserList.Size = new Size(75, 23);
+            buttonUserList.TabIndex = 40;
+            buttonUserList.Text = "使用者一覧";
+            buttonUserList.UseVisualStyleBackColor = true;
+            buttonUserList.Click += buttonUserList_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(672, 394);
-            Controls.Add(button3);
+            Controls.Add(buttonUserList);
             Controls.Add(button2);
             Controls.Add(label8);
             Controls.Add(comboBoxReasonForApplyingForExemption);
@@ -640,6 +641,6 @@
         private GroupBox groupBox4;
         private Label label8;
         private Button button2;
-        private Button button3;
+        private Button buttonUserList;
     }
 }

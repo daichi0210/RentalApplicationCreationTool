@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RentalApplicationCreationTool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1287266c30a51931bc92ed64a1744aa1a3148f4c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65d0cd0d8a2b78f7851fe71428543f72729801d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("RentalApplicationCreationTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RentalApplicationCreationTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
