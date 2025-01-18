@@ -1,3 +1,5 @@
+using Word = Microsoft.Office.Interop.Word;
+
 namespace RentalApplicationCreationTool
 {
     public partial class Form1 : Form
@@ -298,69 +300,62 @@ namespace RentalApplicationCreationTool
             //    replaceWords.Add("%OTHER_EQUIPMENT%", "");
             //}
 
-            /*
-                        // Word ファイル
-                        string wordFile = @"C:\Users\nora\source\repos\RentalFacility\RentalFacility\bin\Debug\template\mousikomisyo.docx";
+            // Word ファイル
+            string wordFile = @"D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\bin\Debug\net8.0-windows\template\mousikomisyo.docx";
 
-                        // Application を宣言する
-                        Word.Application app = null;
+            // Application を宣言する
+            Word.Application app = null;
 
-                        // ドキュメントのコレクションを宣言する
-                        Word.Documents documents = null;
+            // ドキュメントのコレクションを宣言する
+            Word.Documents documents = null;
 
-                        // ドキュメントを宣言する
-                        Word.Document document = null;
+            // ドキュメントを宣言する
+            Word.Document document = null;
 
-                        try
-                        {
-                            // Application を作成する
-                            app = new Word.Application();
+            try
+            {
+                // Application を作成する
+                app = new Word.Application();
 
-                            // ドキュメントのコレクションを取得する
-                            documents = app.Documents;
+                // ドキュメントのコレクションを取得する
+                documents = app.Documents;
 
-                            // Word の文書ファイルを開く
-                            document = documents.Open(wordFile);
+                // Word の文書ファイルを開く
+                document = documents.Open(wordFile);
 
-                            // ★これがないと missing がなくて実行できない
-                            //object missing = Type.Missing;
+                // ★これがないと missing がなくて実行できない
+                //object missing = Type.Missing;
 
-                            Word.Find findObject = app.Selection.Find;
-                            foreach (var replaceWord in replaceWords)
-                            {
-                                findObject.ClearFormatting();
-                                findObject.Text = replaceWord.Key;
-                                findObject.Replacement.ClearFormatting();
-                                findObject.Replacement.Text = replaceWord.Value;
+                Word.Find findObject = app.Selection.Find;
+                /*
+                foreach (var replaceWord in replaceWords)
+                {
+                    findObject.ClearFormatting();
+                    findObject.Text = replaceWord.Key;
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = replaceWord.Value;
 
-                                // ★該当箇所　一か所のみ置き換えるように変更する
-                                object replaceAll = Word.WdReplace.wdReplaceAll;
-                                findObject.Execute(Replace: replaceAll);
-                            }
+                    // ★該当箇所　一か所のみ置き換えるように変更する
+                    object replaceAll = Word.WdReplace.wdReplaceAll;
+                    findObject.Execute(Replace: replaceAll);
+                }
+                */
 
-                            // ★チェックボックスの確認
-                            // 免除申請
-                            if (checkBoxFeeExemption.Checked)
-                            {
+                // 表示する
+                app.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        // Wordのインスタンスを作成
+        //Word.Application app;
+        // Wordアプリケーションオブジェクトを作成
+        //app = new Word.Application();
 
-                            }
-
-                            // 表示する
-                            app.Visible = true;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                    // Wordのインスタンスを作成
-                    //Word.Application app;
-                    // Wordアプリケーションオブジェクトを作成
-                    //app = new Word.Application();
-
-                    // 表示する
-                    //app.Visible = true;
-            */
+        // 表示する
+        //app.Visible = true;
 
             //Documents コレクションのAdd メソッドを使用して、
             //Normal.dot に基づく新しい文書を作成します。
@@ -376,7 +371,6 @@ namespace RentalApplicationCreationTool
             //app.Documents.Open(@"C:\Users\nora\source\repos\RentalFacility\RentalFacility\bin\Debug\template\mousikomisyo.docx");
 
             // データを差し込む
-        }
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
