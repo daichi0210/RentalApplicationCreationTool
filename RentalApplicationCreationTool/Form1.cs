@@ -137,7 +137,7 @@ namespace RentalApplicationCreationTool
             // 使用料の免除申請を代入
             reasonForApplyingForExemption = comboBoxReasonForApplyingForExemption.Text;
 
-
+            /* 各変数の値確認用 */
             //MessageBox.Show(applicationDate);
             //MessageBox.Show(name);
             //MessageBox.Show(telephoneNumber);
@@ -150,9 +150,9 @@ namespace RentalApplicationCreationTool
             //MessageBox.Show(startMinutes);
             //MessageBox.Show(endTime);
             //MessageBox.Show(endMinutes);
-            MessageBox.Show(roomName);
-            MessageBox.Show(auxiliaryEquipmentUsed);
-            MessageBox.Show(reasonForApplyingForExemption);
+            //MessageBox.Show(roomName);
+            //MessageBox.Show(auxiliaryEquipmentUsed);
+            //MessageBox.Show(reasonForApplyingForExemption);
 
 
             //if (int.Parse(comboBoxApplicationYear.Text) < 10)
@@ -264,31 +264,36 @@ namespace RentalApplicationCreationTool
             //}
 
             // 置換する単語を定義
-            //Dictionary<string, string> replaceWords = new Dictionary<string, string>()
-            //{
-            //    {"%AY%", applicationYear},
-            //    {"%AM%", applicationMonth},
-            //    {"%AD%", applicationDate},
-            //    {"%LAST_NAME%", textBoxLastName.Text},
-            //    {"%FIRST_NAME%", textBoxFirstName.Text},
-            //    {"%TEL%", textBoxTEL.Text},
-            //    {"%ADDRESS%", textBoxAddress.Text},
-            //    {"%ORGANIZATION%", textBoxOrganization.Text},
-            //    {"%PURPOSE%", textBoxPurpose.Text},
-            //    {"%NoP%", textBoxNumberOfPeople.Text},
-            //    {"%YoU%", yearOfUse},
-            //    {"%MoU%", monthOfUse},
-            //    {"%DoU%", dateOfUse},
-            //    {"%ST%", startTime},
-            //    {"%SM%", startMinutes},
-            //    {"%ET%", endTime},
-            //    {"%EM%", endMinutes},
-            //    {"%ROOMS%", rooms},
-            //    {"%AC%", airConditioner},
-            //    {"%OE%", otherEquipment},
-            //    {"%FE%", feeExemption},
-            //    {"%RFE%", reasonForExemption},
-            //};
+            Dictionary<string, string> replaceWords = new Dictionary<string, string>()
+            {
+                //{"%AY%", applicationYear},
+                //{"%AM%", applicationMonth},
+                //{"%AD%", applicationDate},
+
+                {"%NAME%", name},
+                
+                {"%TEL%", telephoneNumber},
+                {"%ADDRESS%", address},
+                {"%ORGANIZATION%", organizationName},
+                {"%PURPOSE%", purposeOfUse},
+                {"%NoP%", numberOfPeople},
+
+                //{"%YoU%", yearOfUse},
+                //{"%MoU%", monthOfUse},
+                //{"%DoU%", dateOfUse},
+
+                {"%ST%", startTime},
+                {"%SM%", startMinutes},
+                {"%ET%", endTime},
+                {"%EM%", endMinutes},
+
+                {"%ROOMS%", roomName},
+
+                //{"%AC%", airConditioner},
+                //{"%OE%", otherEquipment},
+                //{"%FE%", feeExemption},
+                {"%RFE%", reasonForApplyingForExemption},
+            };
 
             //★スペースの数を要修正
             //if (textBoxOtherEquipment.Text != null)
@@ -300,6 +305,10 @@ namespace RentalApplicationCreationTool
             //    replaceWords.Add("%OTHER_EQUIPMENT%", "");
             //}
 
+
+            // テンプレートを開く
+            // ★相対パスで指定する
+            // ★Wordテンプレートを開くほうが良いかも
             // Word ファイル
             string wordFile = @"D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\bin\Debug\net8.0-windows\template\mousikomisyo.docx";
 
@@ -327,7 +336,7 @@ namespace RentalApplicationCreationTool
                 //object missing = Type.Missing;
 
                 Word.Find findObject = app.Selection.Find;
-                /*
+
                 foreach (var replaceWord in replaceWords)
                 {
                     findObject.ClearFormatting();
@@ -339,7 +348,6 @@ namespace RentalApplicationCreationTool
                     object replaceAll = Word.WdReplace.wdReplaceAll;
                     findObject.Execute(Replace: replaceAll);
                 }
-                */
 
                 // 表示する
                 app.Visible = true;
@@ -349,28 +357,6 @@ namespace RentalApplicationCreationTool
                 MessageBox.Show(ex.Message);
             }
         }
-        // Wordのインスタンスを作成
-        //Word.Application app;
-        // Wordアプリケーションオブジェクトを作成
-        //app = new Word.Application();
-
-        // 表示する
-        //app.Visible = true;
-
-            //Documents コレクションのAdd メソッドを使用して、
-            //Normal.dot に基づく新しい文書を作成します。
-            /*
-            object missingValue = Type.Missing;
-            app.Documents.Add(ref missingValue, ref missingValue,
-                ref missingValue, ref missingValue);
-            */
-
-            // テンプレートを開く
-            // ★相対パスで指定する
-            // ★Wordテンプレートを開くほうが良いかも
-            //app.Documents.Open(@"C:\Users\nora\source\repos\RentalFacility\RentalFacility\bin\Debug\template\mousikomisyo.docx");
-
-            // データを差し込む
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
