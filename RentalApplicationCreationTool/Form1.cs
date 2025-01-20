@@ -1,3 +1,5 @@
+using System.Globalization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace RentalApplicationCreationTool
@@ -137,24 +139,6 @@ namespace RentalApplicationCreationTool
             // 使用料の免除申請を代入
             reasonForApplyingForExemption = comboBoxReasonForApplyingForExemption.Text;
 
-            /* 各変数の値確認用 */
-            //MessageBox.Show(applicationDate);
-            //MessageBox.Show(name);
-            //MessageBox.Show(telephoneNumber);
-            //MessageBox.Show(address);
-            //MessageBox.Show(organizationName);
-            //MessageBox.Show(purposeOfUse);
-            //MessageBox.Show(numberOfPeople);
-            //MessageBox.Show(dateOfUse);
-            //MessageBox.Show(startTime);
-            //MessageBox.Show(startMinutes);
-            //MessageBox.Show(endTime);
-            //MessageBox.Show(endMinutes);
-            //MessageBox.Show(roomName);
-            //MessageBox.Show(auxiliaryEquipmentUsed);
-            //MessageBox.Show(reasonForApplyingForExemption);
-
-
             //if (int.Parse(comboBoxApplicationYear.Text) < 10)
             //{
             //    applicationYear = "　" + int.Parse(comboBoxApplicationYear.Text);
@@ -263,30 +247,31 @@ namespace RentalApplicationCreationTool
             //    reasonForExemption = " ";
             //}
 
+
+
+            // 年を和暦で表示するための準備
+            CultureInfo Japanese = new CultureInfo("ja-JP");
+            Japanese.DateTimeFormat.Calendar = new JapaneseCalendar();
+
             // 置換する単語を定義
             Dictionary<string, string> replaceWords = new Dictionary<string, string>()
             {
-                //{"%AY%", applicationYear},
-                //{"%AM%", applicationMonth},
-                //{"%AD%", applicationDate},
-
+                {"%AY%", dateTimePickerApplicationDate.Value.ToString("%y", Japanese)},
+                {"%AM%", dateTimePickerApplicationDate.Value.ToString("%M")},
+                {"%AD%", dateTimePickerApplicationDate.Value.ToString("%d")},
                 {"%NAME%", name},
-
                 {"%TEL%", telephoneNumber},
                 {"%ADDRESS%", address},
                 {"%ORGANIZATION%", organizationName},
                 {"%PURPOSE%", purposeOfUse},
                 {"%NoP%", numberOfPeople},
-
-                //{"%YoU%", yearOfUse},
-                //{"%MoU%", monthOfUse},
-                //{"%DoU%", dateOfUse},
-
+                {"%YoU%", dateTimePickerDateOfUse.Value.ToString("%y", Japanese)},
+                {"%MoU%", dateTimePickerDateOfUse.Value.ToString("%M")},
+                {"%DoU%", dateTimePickerDateOfUse.Value.ToString("%d")},
                 {"%ST%", startTime},
                 {"%SM%", startMinutes},
                 {"%ET%", endTime},
                 {"%EM%", endMinutes},
-
                 {"%ROOMS%", roomName},
 
                 //{"%AC%", airConditioner},
@@ -294,6 +279,8 @@ namespace RentalApplicationCreationTool
                 //{"%FE%", feeExemption},
                 {"%RFE%", reasonForApplyingForExemption},
             };
+
+
 
             //★スペースの数を要修正
             //if (textBoxOtherEquipment.Text != null)
