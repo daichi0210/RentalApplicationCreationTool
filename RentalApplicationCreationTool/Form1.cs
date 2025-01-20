@@ -363,12 +363,5 @@ namespace RentalApplicationCreationTool
             FormUserList formUserList = new FormUserList();
             formUserList.ShowDialog();
         }
-
-        //　フォームがロードされた際の処理
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // 苗字のテキストボックスにフォーカスする
-            this.ActiveControl = this.textBoxLastName;
-        }
     }
 }
