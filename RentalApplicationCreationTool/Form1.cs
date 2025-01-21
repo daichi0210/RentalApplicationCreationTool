@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -45,8 +46,9 @@ namespace RentalApplicationCreationTool
             string address;             // 住所
             string organizationName;    // 団体名
             string purposeOfUse;        // 使用目的
-            string numberOfPeople;         // 使用人数
+            string numberOfPeople;      // 使用人数
             string dateOfUse;           // 使用日
+            string dayOfWeek;           // 使用日の曜日
             string startTime;           // 開始時刻（時）
             string startMinutes;        // 開始時刻（分）
             string endTime;             // 終了時刻（時）
@@ -73,6 +75,8 @@ namespace RentalApplicationCreationTool
             numberOfPeople = textBoxNumberOfPeople.Text;
             // 使用日を代入
             dateOfUse = dateTimePickerDateOfUse.Value.ToString();
+            // 使用日の曜日を代入
+            dayOfWeek = dateTimePickerDateOfUse.Value.ToString("ddd");
             // 開始時刻（時）を代入
             startTime = comboBoxStartTimeHour.Text;
             // 開始時刻（分）を代入
@@ -256,6 +260,7 @@ namespace RentalApplicationCreationTool
             // 置換する単語を定義
             Dictionary<string, string> replaceWords = new Dictionary<string, string>()
             {
+                // ★要修正
                 {"%AY%", dateTimePickerApplicationDate.Value.ToString("%y", Japanese)},
                 {"%AM%", dateTimePickerApplicationDate.Value.ToString("%M")},
                 {"%AD%", dateTimePickerApplicationDate.Value.ToString("%d")},
@@ -265,17 +270,18 @@ namespace RentalApplicationCreationTool
                 {"%ORGANIZATION%", organizationName},
                 {"%PURPOSE%", purposeOfUse},
                 {"%NoP%", numberOfPeople},
+                // ★要修正。dayOfWeekのようにならないか？
                 {"%YoU%", dateTimePickerDateOfUse.Value.ToString("%y", Japanese)},
                 {"%MoU%", dateTimePickerDateOfUse.Value.ToString("%M")},
                 {"%DoU%", dateTimePickerDateOfUse.Value.ToString("%d")},
+                {"%DoW%", dayOfWeek},
                 {"%ST%", startTime},
                 {"%SM%", startMinutes},
                 {"%ET%", endTime},
                 {"%EM%", endMinutes},
-                {"%ROOMS%", roomName},
-
+                {"%ROOM%", roomName},
                 //{"%AC%", airConditioner},
-                //{"%OE%", otherEquipment},
+                {"%OE%", auxiliaryEquipmentUsed},
                 //{"%FE%", feeExemption},
                 {"%RFE%", reasonForApplyingForExemption},
             };
