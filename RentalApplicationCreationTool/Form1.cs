@@ -94,7 +94,9 @@ namespace RentalApplicationCreationTool
             //š•”‰®–¼‚ğ‹t‡‚Å’Ç‰Á‚·‚é
             //š‰ï‹cº‡@‚Æ‰ï‹cº‡A‚ª’Ç‰Á‚³‚ê‚½ê‡A‰ï‹cº‡@‡A‚É‚·‚é
             //š•¡”‚Ì•”‰®‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éê‡A‹å“_‚Å‹æØ‚é‚æ‚¤‚É‚·‚é
-            foreach (CheckBox cb in groupBoxRoomName.Controls.OfType<CheckBox>())
+
+            // •”‰®–¼‚ğTabIndex‡‚É‚·‚é‚½‚ßAforeach‚ğ‹t‡‚É‚µ‚Ä‚¢‚é
+            foreach (CheckBox cb in Enumerable.Reverse(groupBoxRoomName.Controls.OfType<CheckBox>()))
             {
                 AddToList list = new AddToList();
 
