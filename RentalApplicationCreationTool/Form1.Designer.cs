@@ -359,7 +359,7 @@
             // 
             comboBoxReasonForApplyingForExemption.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxReasonForApplyingForExemption.FormattingEnabled = true;
-            comboBoxReasonForApplyingForExemption.Items.AddRange(new object[] { "1", "2", "3" });
+            comboBoxReasonForApplyingForExemption.Items.AddRange(new object[] { "", "1", "2", "3" });
             comboBoxReasonForApplyingForExemption.Location = new Point(501, 303);
             comboBoxReasonForApplyingForExemption.Name = "comboBoxReasonForApplyingForExemption";
             comboBoxReasonForApplyingForExemption.Size = new Size(31, 23);

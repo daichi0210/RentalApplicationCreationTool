@@ -1,3 +1,4 @@
+ï»¿using System;
 using System.Globalization;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -12,7 +13,7 @@ namespace RentalApplicationCreationTool
             InitializeComponent();
         }
 
-        // g—pº–¼‚Ì[‚»‚Ì‘¼]‚ªƒ`ƒFƒbƒN‚³‚ê‚½ê‡AƒeƒLƒXƒgƒ{ƒbƒNƒX‚ğ—LŒø‰»‚·‚é
+        // ä½¿ç”¨å®¤åã®[ãã®ä»–]ãŒãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸå ´åˆã€ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
         private void checkBoxOtherRooms_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxOtherRooms.Checked == true)
@@ -25,7 +26,7 @@ namespace RentalApplicationCreationTool
             }
         }
 
-        // g—p•‘®İ”õ‚Ì[‚»‚Ì‘¼]‚ªƒ`ƒFƒbƒN‚³‚ê‚½ê‡AƒeƒLƒXƒgƒ{ƒbƒNƒX‚ğ—LŒø‰»‚·‚é
+        // ä½¿ç”¨é™„å±è¨­å‚™ã®[ãã®ä»–]ãŒãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸå ´åˆã€ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
         private void checkBoxOtherEquipment_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxOtherEquipment.Checked)
@@ -40,69 +41,72 @@ namespace RentalApplicationCreationTool
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string applicationDate;     // \¿“ú
-            string name;                // –¼‘O
-            string telephoneNumber;     // “d˜b”Ô†
-            string address;             // ZŠ
-            string organizationName;    // ’c‘Ì–¼
-            string purposeOfUse;        // g—p–Ú“I
-            string numberOfPeople;      // g—pl”
-            string dateOfUse;           // g—p“ú
-            string dayOfWeek;           // g—p“ú‚Ì—j“ú
-            string startTime;           // ŠJnij
-            string startMinutes;        // ŠJni•ªj
-            string endTime;             // I—¹ij
-            string endMinutes;          // I—¹i•ªj
-            string roomName = "";       // g—pº–¼
-            string auxiliaryEquipmentUsed = "";     // g—p•‘®İ”õ
-            string reasonForApplyingForExemption;   // g—p—¿‚Ì–Æœ\¿
+            string applicationDate;     // ç”³è«‹æ—¥
+            string name;                // åå‰
+            string telephoneNumber;     // é›»è©±ç•ªå·
+            string address;             // ä½æ‰€
+            string organizationName;    // å›£ä½“å
+            string purposeOfUse;        // ä½¿ç”¨ç›®çš„
+            string numberOfPeople;      // ä½¿ç”¨äººæ•°
+            string dateOfUse;           // ä½¿ç”¨æ—¥
+            string dayOfWeek;           // ä½¿ç”¨æ—¥ã®æ›œæ—¥
+            string startTime;           // é–‹å§‹æ™‚åˆ»ï¼ˆæ™‚ï¼‰
+            string startMinutes;        // é–‹å§‹æ™‚åˆ»ï¼ˆåˆ†ï¼‰
+            string endTime;             // çµ‚äº†æ™‚åˆ»ï¼ˆæ™‚ï¼‰
+            string endMinutes;          // çµ‚äº†æ™‚åˆ»ï¼ˆåˆ†ï¼‰
+            string roomName = "";       // ä½¿ç”¨å®¤å
+            string airConditioner;      // ä½¿ç”¨é™„å±è¨­å‚™ï¼ˆå†·æš–æˆ¿ï¼‰
+            string otherEquipment; // ä½¿ç”¨é™„å±è¨­å‚™ï¼ˆãã®ä»–ï¼‰
+            string auxiliaryEquipmentUsed;  // ä½¿ç”¨é™„å±è¨­å‚™ï¼ˆãã®ä»–ã®å†…å®¹ï¼‰
+            string exemptionApplication;    // ä½¿ç”¨æ–™ã®å…é™¤ç”³è«‹
+            string reasonForApplyingForExemption;   // ä½¿ç”¨æ–™ã®å…é™¤ç”³è«‹ç†ç”±
 
 
 
-            // \¿“ú‚ğ‘ã“ü
+            // ç”³è«‹æ—¥ã‚’ä»£å…¥
             applicationDate = dateTimePickerApplicationDate.Value.ToString();
-            // –¼‘O‚ğ‘ã“ü
-            name = textBoxLastName.Text + "@" + textBoxFirstName.Text;
-            // “d˜b”Ô†‚ğ‘ã“ü
+            // åå‰ã‚’ä»£å…¥
+            name = textBoxLastName.Text + "ã€€" + textBoxFirstName.Text;
+            // é›»è©±ç•ªå·ã‚’ä»£å…¥
             telephoneNumber = textBoxTelephoneNumber.Text;
-            // ZŠ‚ğ‘ã“ü
+            // ä½æ‰€ã‚’ä»£å…¥
             address = textBoxAddress.Text;
-            // ’c‘Ì–¼‚ğ‘ã“ü
+            // å›£ä½“åã‚’ä»£å…¥
             organizationName = textBoxOrganizationName.Text;
-            // g—p–Ú“I‚ğ‘ã“ü
+            // ä½¿ç”¨ç›®çš„ã‚’ä»£å…¥
             purposeOfUse = textBoxPurposeOfUse.Text;
-            // g—pl”‚ğ‘ã“ü
+            // ä½¿ç”¨äººæ•°ã‚’ä»£å…¥
             numberOfPeople = textBoxNumberOfPeople.Text;
-            // g—p“ú‚ğ‘ã“ü
+            // ä½¿ç”¨æ—¥ã‚’ä»£å…¥
             dateOfUse = dateTimePickerDateOfUse.Value.ToString();
-            // g—p“ú‚Ì—j“ú‚ğ‘ã“ü
+            // ä½¿ç”¨æ—¥ã®æ›œæ—¥ã‚’ä»£å…¥
             dayOfWeek = dateTimePickerDateOfUse.Value.ToString("ddd");
-            // ŠJnij‚ğ‘ã“ü
+            // é–‹å§‹æ™‚åˆ»ï¼ˆæ™‚ï¼‰ã‚’ä»£å…¥
             startTime = comboBoxStartTimeHour.Text;
-            // ŠJni•ªj‚ğ‘ã“ü
+            // é–‹å§‹æ™‚åˆ»ï¼ˆåˆ†ï¼‰ã‚’ä»£å…¥
             startMinutes = comboBoxStartTimeMinutes.Text;
-            // I—¹ij‚ğ‘ã“ü
+            // çµ‚äº†æ™‚åˆ»ï¼ˆæ™‚ï¼‰ã‚’ä»£å…¥
             endTime = comboBoxEndTimeHour.Text;
-            // I—¹i•ªj‚ğ‘ã“ü
+            // çµ‚äº†æ™‚åˆ»ï¼ˆåˆ†ï¼‰ã‚’ä»£å…¥
             endMinutes = comboBoxEndTimeMinutes.Text;
 
 
-            //ššš—v—‰ğ
-            // g—pº–¼‚ğ‘ã“ü
+            //â˜…â˜…â˜…è¦ç†è§£
+            // ä½¿ç”¨å®¤åã‚’ä»£å…¥
             //var roomNameList = new List<CheckBox>();
             //var roomNameList = new List<Control>();
-            //š•”‰®–¼‚ğ‹t‡‚Å’Ç‰Á‚·‚é
-            //š‰ï‹cº‡@‚Æ‰ï‹cº‡A‚ª’Ç‰Á‚³‚ê‚½ê‡A‰ï‹cº‡@‡A‚É‚·‚é
-            //š•¡”‚Ì•”‰®‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éê‡A‹å“_‚Å‹æØ‚é‚æ‚¤‚É‚·‚é
+            //â˜…éƒ¨å±‹åã‚’é€†é †ã§è¿½åŠ ã™ã‚‹
+            //â˜…ä¼šè­°å®¤â‘ ã¨ä¼šè­°å®¤â‘¡ãŒè¿½åŠ ã•ã‚ŒãŸå ´åˆã€ä¼šè­°å®¤â‘ â‘¡ã«ã™ã‚‹
+            //â˜…è¤‡æ•°ã®éƒ¨å±‹ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹å ´åˆã€å¥ç‚¹ã§åŒºåˆ‡ã‚‹ã‚ˆã†ã«ã™ã‚‹
 
-            // •”‰®–¼‚ğTabIndex‡‚É‚·‚é‚½‚ßAforeach‚ğ‹t‡‚É‚µ‚Ä‚¢‚é
+            // éƒ¨å±‹åã‚’TabIndexé †ã«ã™ã‚‹ãŸã‚ã€foreachã‚’é€†é †ã«ã—ã¦ã„ã‚‹
             foreach (CheckBox cb in Enumerable.Reverse(groupBoxRoomName.Controls.OfType<CheckBox>()))
             {
                 AddToList list = new AddToList();
 
                 if (cb.Checked)
                 {
-                    if (cb.Text == "‚»‚Ì‘¼")
+                    if (cb.Text == "ãã®ä»–")
                     {
                         roomName += list.TextFormatting(roomName, textBoxOtherRooms.Text);
                     }
@@ -112,157 +116,61 @@ namespace RentalApplicationCreationTool
                     }
                 }
             }
-            // g—pº–¼‚ğŠm”F
+            // ä½¿ç”¨å®¤åã‚’ç¢ºèª
             //if (checkBoxConferenceRoom1.Checked && checkBoxConferenceRoom2.Checked)
             //{
-            //    MessageBox.Show("‰ï‹cº‡@‡A");
+            //    MessageBox.Show("ä¼šè­°å®¤â‘ â‘¡");
             //}
             //if (checkBoxJapaneseStyleRoom1.Checked && checkBoxJapaneseStyleRoom2.Checked)
             //{
-            //    MessageBox.Show("˜aº‡@‡A");
+            //    MessageBox.Show("å’Œå®¤â‘ â‘¡");
             //}
 
 
-
-            // g—p•‘®İ”õ‚ğ‘ã“ü
-            foreach (CheckBox cb in groupBoxAuxiliaryEquipmentUsed.Controls.OfType<CheckBox>())
+            // ä½¿ç”¨é™„å±è¨­å‚™ï¼ˆå†·æš–æˆ¿ï¼‰ã®çŠ¶æ…‹
+            if (checkBoxAirConditioningAndHeating.Checked)
             {
-                AddToList list = new AddToList();
-
-                if (cb.Checked)
-                {
-                    if (cb.Text == "‚»‚Ì‘¼")
-                    {
-                        auxiliaryEquipmentUsed += list.TextFormatting(auxiliaryEquipmentUsed, textBoxOtherEquipment.Text);
-                    }
-                    else
-                    {
-                        auxiliaryEquipmentUsed += list.TextFormatting(auxiliaryEquipmentUsed, cb.Text);
-                    }
-                }
+                airConditioner = "â˜‘";
+            }
+            else
+            {
+                airConditioner = "â–¡";
             }
 
-            // g—p—¿‚Ì–Æœ\¿‚ğ‘ã“ü
+            // ä½¿ç”¨é™„å±è¨­å‚™ï¼ˆãã®ä»–ï¼‰ã®çŠ¶æ…‹
+            if (checkBoxOtherEquipment.Checked)
+            {
+                otherEquipment = "â˜‘";
+            }
+            else
+            {
+                otherEquipment = "â–¡";
+            }
+
+            // ä½¿ç”¨é™„å±è¨­å‚™ï¼ˆãã®ä»–ã®å†…å®¹ï¼‰
+            auxiliaryEquipmentUsed = textBoxOtherEquipment.Text;
+
+            // ä½¿ç”¨æ–™ã®å…é™¤ç”³è«‹ã®çŠ¶æ…‹
+            if (comboBoxReasonForApplyingForExemption.Text != "")
+            {
+                exemptionApplication = "â˜‘";
+            }
+            else
+            {
+                exemptionApplication = "â–¡";
+            }
+
+            // ä½¿ç”¨æ–™ã®å…é™¤ç”³è«‹ã‚’ä»£å…¥
             reasonForApplyingForExemption = comboBoxReasonForApplyingForExemption.Text;
 
-            //if (int.Parse(comboBoxApplicationYear.Text) < 10)
-            //{
-            //    applicationYear = "@" + int.Parse(comboBoxApplicationYear.Text);
-            //}
-            //else
-            //{
-            //    applicationYear = comboBoxApplicationYear.Text;
-            //}
-
-            //if (int.Parse(comboBoxApplicationMonth.Text) < 10)
-            //{
-            //    applicationMonth = "@" + int.Parse(comboBoxApplicationMonth.Text);
-            //}
-            //else
-            //{
-            //    applicationMonth = comboBoxApplicationMonth.Text;
-            //}
-
-            //if (int.Parse(comboBoxApplicationDate.Text) < 10)
-            //{
-            //    applicationDate = "@" + int.Parse(comboBoxApplicationDate.Text);
-            //}
-            //else
-            //{
-            //    applicationDate = comboBoxApplicationDate.Text;
-            //}
-
-            //if (int.Parse(comboBoxYearOfUse.Text) < 10)
-            //{
-            //    yearOfUse = "@" + int.Parse(comboBoxYearOfUse.Text);
-            //}
-            //else
-            //{
-            //    yearOfUse = comboBoxYearOfUse.Text;
-            //}
-
-            //if (int.Parse(comboBoxMonthOfUse.Text) < 10)
-            //{
-            //    monthOfUse = "@" + int.Parse(comboBoxMonthOfUse.Text);
-            //}
-            //else
-            //{
-            //    monthOfUse = comboBoxMonthOfUse.Text;
-            //}
-
-            //if (int.Parse(comboBoxDateOfUse.Text) < 10)
-            //{
-            //    dateOfUse = "@" + int.Parse(comboBoxDateOfUse.Text);
-            //}
-            //else
-            //{
-            //    dateOfUse = comboBoxDateOfUse.Text;
-            //}
-
-            //if (int.Parse(comboBoxStartTime.Text) < 10)
-            //{
-            //    startTime = "@" + int.Parse(comboBoxStartTime.Text);
-            //}
-            //else
-            //{
-            //    startTime = comboBoxStartTime.Text;
-            //}
-
-
-            //if (int.Parse(comboBoxEndTime.Text) < 10)
-            //{
-            //    endTime = "@" + int.Parse(comboBoxEndTime.Text);
-            //}
-            //else
-            //{
-            //    endTime = comboBoxEndTime.Text;
-            //}
-
-
-
-            //if (checkBoxRoom1.Checked)
-            //{
-            //    rooms += checkBoxRoom1.Text;
-            //}
-
-
-
-            //if (checkBoxOtherEquipment.Checked)
-            //{
-            //    otherEquipment = "ƒ`ƒFƒbƒN";
-            //}
-            //else
-            //{
-            //    otherEquipment = "ƒ`ƒFƒbƒN‚È‚µ";
-            //}
-            //if (checkBoxFeeExemption.Checked)
-            //{
-            //    feeExemption = "ƒ`ƒFƒbƒN";
-            //}
-            //else
-            //{
-            //    feeExemption = "ƒ`ƒFƒbƒN‚È‚µ";
-            //}
-
-            //if (checkBoxFeeExemption.Checked && comboBoxReasonForExemption != null)
-            //{
-            //    reasonForExemption = comboBoxReasonForExemption.Text;
-            //}
-            //else
-            //{
-            //    reasonForExemption = " ";
-            //}
-
-
-
-            // ”N‚ğ˜a—ï‚Å•\¦‚·‚é‚½‚ß‚Ì€”õ
+            // å¹´ã‚’å’Œæš¦ã§è¡¨ç¤ºã™ã‚‹ãŸã‚ã®æº–å‚™
             CultureInfo Japanese = new CultureInfo("ja-JP");
             Japanese.DateTimeFormat.Calendar = new JapaneseCalendar();
 
-            // ’uŠ·‚·‚é’PŒê‚ğ’è‹`
+            // ç½®æ›ã™ã‚‹å˜èªã‚’å®šç¾©
             Dictionary<string, string> replaceWords = new Dictionary<string, string>()
             {
-                // š—vC³
+                // â˜…è¦ä¿®æ­£
                 {"%AY%", dateTimePickerApplicationDate.Value.ToString("%y", Japanese)},
                 {"%AM%", dateTimePickerApplicationDate.Value.ToString("%M")},
                 {"%AD%", dateTimePickerApplicationDate.Value.ToString("%d")},
@@ -272,7 +180,7 @@ namespace RentalApplicationCreationTool
                 {"%ORGANIZATION%", organizationName},
                 {"%PURPOSE%", purposeOfUse},
                 {"%NoP%", numberOfPeople},
-                // š—vC³BdayOfWeek‚Ì‚æ‚¤‚É‚È‚ç‚È‚¢‚©H
+                // â˜…è¦ä¿®æ­£ã€‚dayOfWeekã®ã‚ˆã†ã«ãªã‚‰ãªã„ã‹ï¼Ÿ
                 {"%YoU%", dateTimePickerDateOfUse.Value.ToString("%y", Japanese)},
                 {"%MoU%", dateTimePickerDateOfUse.Value.ToString("%M")},
                 {"%DoU%", dateTimePickerDateOfUse.Value.ToString("%d")},
@@ -282,15 +190,16 @@ namespace RentalApplicationCreationTool
                 {"%ET%", endTime},
                 {"%EM%", endMinutes},
                 {"%ROOM%", roomName},
-                //{"%AC%", airConditioner},
-                {"%OE%", auxiliaryEquipmentUsed},
-                //{"%FE%", feeExemption},
+                {"%AC%", airConditioner},
+                {"%OE%", otherEquipment},
+                {"%OEU%", auxiliaryEquipmentUsed},
+                {"%EA%", exemptionApplication},
                 {"%RFE%", reasonForApplyingForExemption},
             };
 
 
 
-            //šƒXƒy[ƒX‚Ì”‚ğ—vC³
+            //â˜…ã‚¹ãƒšãƒ¼ã‚¹ã®æ•°ã‚’è¦ä¿®æ­£
             //if (textBoxOtherEquipment.Text != null)
             //{
             //    replaceWords.Add("%OTHER_EQUIPMENT%", textBoxOtherEquipment.Text);
@@ -301,33 +210,33 @@ namespace RentalApplicationCreationTool
             //}
 
 
-            // ƒeƒ“ƒvƒŒ[ƒg‚ğŠJ‚­
-            // š‘Š‘ÎƒpƒX‚Åw’è‚·‚é
-            // šWordƒeƒ“ƒvƒŒ[ƒg‚ğŠJ‚­‚Ù‚¤‚ª—Ç‚¢‚©‚à
-            // Word ƒtƒ@ƒCƒ‹
+            // ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’é–‹ã
+            // â˜…ç›¸å¯¾ãƒ‘ã‚¹ã§æŒ‡å®šã™ã‚‹
+            // â˜…Wordãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’é–‹ãã»ã†ãŒè‰¯ã„ã‹ã‚‚
+            // Word ãƒ•ã‚¡ã‚¤ãƒ«
             string wordFile = @"D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\bin\Debug\net8.0-windows\template\mousikomisyo.docx";
 
-            // Application ‚ğéŒ¾‚·‚é
+            // Application ã‚’å®£è¨€ã™ã‚‹
             Word.Application app = null;
 
-            // ƒhƒLƒ…ƒƒ“ƒg‚ÌƒRƒŒƒNƒVƒ‡ƒ“‚ğéŒ¾‚·‚é
+            // ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’å®£è¨€ã™ã‚‹
             Word.Documents documents = null;
 
-            // ƒhƒLƒ…ƒƒ“ƒg‚ğéŒ¾‚·‚é
+            // ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å®£è¨€ã™ã‚‹
             Word.Document document = null;
 
             try
             {
-                // Application ‚ğì¬‚·‚é
+                // Application ã‚’ä½œæˆã™ã‚‹
                 app = new Word.Application();
 
-                // ƒhƒLƒ…ƒƒ“ƒg‚ÌƒRƒŒƒNƒVƒ‡ƒ“‚ğæ“¾‚·‚é
+                // ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹
                 documents = app.Documents;
 
-                // Word ‚Ì•¶‘ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+                // Word ã®æ–‡æ›¸ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
                 document = documents.Open(wordFile);
 
-                // š‚±‚ê‚ª‚È‚¢‚Æ missing ‚ª‚È‚­‚ÄÀs‚Å‚«‚È‚¢
+                // â˜…ã“ã‚ŒãŒãªã„ã¨ missing ãŒãªãã¦å®Ÿè¡Œã§ããªã„
                 //object missing = Type.Missing;
 
                 Word.Find findObject = app.Selection.Find;
@@ -339,12 +248,12 @@ namespace RentalApplicationCreationTool
                     findObject.Replacement.ClearFormatting();
                     findObject.Replacement.Text = replaceWord.Value;
 
-                    // šŠY“–‰ÓŠ@ˆê‚©Š‚Ì‚İ’u‚«Š·‚¦‚é‚æ‚¤‚É•ÏX‚·‚é
+                    // â˜…è©²å½“ç®‡æ‰€ã€€ä¸€ã‹æ‰€ã®ã¿ç½®ãæ›ãˆã‚‹ã‚ˆã†ã«å¤‰æ›´ã™ã‚‹
                     object replaceAll = Word.WdReplace.wdReplaceAll;
                     findObject.Execute(Replace: replaceAll);
                 }
 
-                // •\¦‚·‚é
+                // è¡¨ç¤ºã™ã‚‹
                 app.Visible = true;
             }
             catch (Exception ex)
