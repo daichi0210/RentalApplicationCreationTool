@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{912D5DDA-3640-4C15-AE37-353F665ACF20}|RentalApplicationCreationTool\\RentalApplicationCreationTool.csproj|solutionrelative:rentalapplicationcreationtool\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{912D5DDA-3640-4C15-AE37-353F665ACF20}|RentalApplicationCreationTool\\RentalApplicationCreationTool.csproj|d:\\dev\\windows\\src\\repos\\rentalapplicationcreationtool\\rentalapplicationcreationtool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{912D5DDA-3640-4C15-AE37-353F665ACF20}|RentalApplicationCreationTool\\RentalApplicationCreationTool.csproj|D:\\dev\\windows\\src\\repos\\RentalApplicationCreationTool\\rentalapplicationcreationtool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{912D5DDA-3640-4C15-AE37-353F665ACF20}|RentalApplicationCreationTool\\RentalApplicationCreationTool.csproj|solutionrelative:rentalapplicationcreationtool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -42,8 +42,7 @@
               "RelativeToolTip": "RentalApplicationCreationTool\\Form1.Designer.cs",
               "ViewState": "AgIAAFICAAAAAAAAAAAWwGECAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T14:05:43.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T14:05:43.017Z"
             },
             {
               "$type": "Document",
@@ -53,7 +52,7 @@
               "RelativeDocumentMoniker": "RentalApplicationCreationTool\\Form1.cs",
               "ToolTip": "D:\\dev\\windows\\src\\repos\\RentalApplicationCreationTool\\RentalApplicationCreationTool\\Form1.cs",
               "RelativeToolTip": "RentalApplicationCreationTool\\Form1.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAmwBcBAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAkwI4AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-13T05:55:51.624Z",
               "EditorCaption": ""
@@ -90,8 +89,7 @@
               "ToolTip": "D:\\dev\\windows\\src\\repos\\RentalApplicationCreationTool\\RentalApplicationCreationTool\\Form1.cs [\u30C7\u30B6\u30A4\u30F3]",
               "RelativeToolTip": "RentalApplicationCreationTool\\Form1.cs [\u30C7\u30B6\u30A4\u30F3]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T13:08:36.06Z",
-              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+              "WhenOpened": "2025-01-10T13:08:36.06Z"
             }
           ]
         }

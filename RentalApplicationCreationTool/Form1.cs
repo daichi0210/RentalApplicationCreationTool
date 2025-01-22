@@ -64,32 +64,146 @@ namespace RentalApplicationCreationTool
 
 
             // 申請日を代入
+            //if★
             applicationDate = dateTimePickerApplicationDate.Value.ToString();
+
             // 名前を代入
-            name = textBoxLastName.Text + "　" + textBoxFirstName.Text;
+            if (textBoxLastName.Text == "")
+            {
+                MessageBox.Show("苗字を入力してください。");
+                return;
+            }
+            else if (textBoxFirstName.Text == "")
+            {
+                MessageBox.Show("名前を入力してください。");
+                return;
+            }
+            else
+            {
+                name = textBoxLastName.Text + "　" + textBoxFirstName.Text;
+            }
+
             // 電話番号を代入
-            telephoneNumber = textBoxTelephoneNumber.Text;
+            if (textBoxTelephoneNumber.Text == "")
+            {
+                MessageBox.Show("電話番号を入力してください。");
+                return;
+            }
+            else
+            {
+                telephoneNumber = textBoxTelephoneNumber.Text;
+            }
+
             // 住所を代入
-            address = textBoxAddress.Text;
+            if (textBoxAddress.Text == "")
+            {
+                MessageBox.Show("住所を入力してください。");
+                return;
+            }
+            else
+            {
+                address = textBoxAddress.Text;
+            }
+
             // 団体名を代入
-            organizationName = textBoxOrganizationName.Text;
+            if (textBoxOrganizationName.Text == "")
+            {
+                MessageBox.Show("団体名を入力してください。");
+                return;
+            }
+            else
+            {
+                organizationName = textBoxOrganizationName.Text;
+            }
+
             // 使用目的を代入
-            purposeOfUse = textBoxPurposeOfUse.Text;
+            if (textBoxPurposeOfUse.Text == "")
+            {
+                MessageBox.Show("使用目的を入力してください。");
+                return;
+            }
+            else
+            {
+                purposeOfUse = textBoxPurposeOfUse.Text;
+            }
+
             // 使用人数を代入
-            numberOfPeople = textBoxNumberOfPeople.Text;
+            //★数字のみにする
+            if (textBoxNumberOfPeople.Text == "")
+            {
+                MessageBox.Show("使用人数を入力してください。");
+                return;
+            }
+            else
+            {
+                numberOfPeople = textBoxNumberOfPeople.Text;
+            }
+
             // 使用日を代入
-            dateOfUse = dateTimePickerDateOfUse.Value.ToString();
+            //★うまく動作しない
+            if (dateTimePickerDateOfUse.Value < dateTimePickerApplicationDate.Value)
+            {
+                MessageBox.Show("申請日よりも後の日付を選択してください。");
+                MessageBox.Show(dateTimePickerApplicationDate.Value.ToString());
+                MessageBox.Show(dateTimePickerDateOfUse.Value.ToString());
+                return;
+            }
+            else
+            {
+                dateOfUse = dateTimePickerDateOfUse.Value.ToString();
+            }
+
             // 使用日の曜日を代入
             dayOfWeek = dateTimePickerDateOfUse.Value.ToString("ddd");
-            // 開始時刻（時）を代入
-            startTime = comboBoxStartTimeHour.Text;
-            // 開始時刻（分）を代入
-            startMinutes = comboBoxStartTimeMinutes.Text;
-            // 終了時刻（時）を代入
-            endTime = comboBoxEndTimeHour.Text;
-            // 終了時刻（分）を代入
-            endMinutes = comboBoxEndTimeMinutes.Text;
 
+            // 開始時刻（時）を代入
+            //★要確認
+            if (comboBoxStartTimeHour.Text == "")
+            {
+                MessageBox.Show("開始時刻（時）を選択してください。");
+                return;
+            }
+            else
+            {
+                startTime = comboBoxStartTimeHour.Text;
+            }
+
+            // 開始時刻（分）を代入
+            if (comboBoxStartTimeMinutes.Text == "")
+            {
+                MessageBox.Show("開始時刻（分）を選択してください。");
+                return;
+            }
+            else
+            {
+                startMinutes = comboBoxStartTimeMinutes.Text;
+            }
+
+            //★★★開始時刻よりも終了時刻のほうが早い場合の処理を追加
+            // 終了時刻（時）を代入
+            if (comboBoxEndTimeHour.Text == "")
+            {
+                MessageBox.Show("終了時刻（時）を選択してください。");
+                return;
+            }
+            else
+            {
+                endTime = comboBoxEndTimeHour.Text;
+            }
+
+            // 終了時刻（分）を代入
+            if (comboBoxEndTimeMinutes.Text == "")
+            {
+                MessageBox.Show("終了時刻（分）を選択してください。");
+                return;
+            }
+            else
+            {
+                endMinutes = comboBoxEndTimeMinutes.Text;
+            }
+
+
+            //★★★★★★以下、必須処理が必要
 
             //★★★要理解
             // 使用室名を代入
