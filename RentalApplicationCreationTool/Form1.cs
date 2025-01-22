@@ -255,6 +255,29 @@ namespace RentalApplicationCreationTool
 
                 // 表示する
                 app.Visible = true;
+
+                // 印刷設定
+                object copies = "1";
+                object pages = "";
+                object range = Word.WdPrintOutRange.wdPrintAllDocument;
+                object items = Word.WdPrintOutItem.wdPrintDocumentContent;
+                object pageType = Word.WdPrintOutPages.wdPrintAllPages;
+                object oTrue = true;
+                object oFalse = false;
+
+                // 印刷する
+                app.PrintOut(
+                    Background: oTrue,
+                    Append: oFalse,
+                    Range: range,
+                    Item: items,
+                    Copies: copies,
+                    Pages: pages,
+                    PageType: pageType,
+                    PrintToFile: oFalse,
+                    Collate: oTrue,
+                    ManualDuplexPrint: oFalse
+                );
             }
             catch (Exception ex)
             {
