@@ -217,6 +217,20 @@ namespace RentalApplicationCreationTool
                     }
                 }
             }
+            // その他が選択されているが部屋名が未入力の場合
+            if (checkBoxOtherRooms.Checked && textBoxOtherRooms.Text == "")
+            {
+                MessageBox.Show("その他の部屋名を入力してください。");
+                return;
+            }
+            // 使用する部屋が選択されていない場合
+            if (roomName == "")
+            {
+                MessageBox.Show("使用する部屋を選択してください。");
+                return;
+            }
+
+
             // 使用室名を確認
             //if (checkBoxConferenceRoom1.Checked && checkBoxConferenceRoom2.Checked)
             //{
@@ -250,6 +264,13 @@ namespace RentalApplicationCreationTool
 
             // 使用附属設備（その他の内容）
             auxiliaryEquipmentUsed = textBoxOtherEquipment.Text;
+            // 使用附属設備（その他）が選択されているが内容が未入力の場合
+            if (checkBoxOtherEquipment.Checked && auxiliaryEquipmentUsed == "")
+            {
+                MessageBox.Show("その他の設備を入力してください。");
+                return;
+            }
+
 
             // 使用料の免除申請の状態
             if (comboBoxReasonForApplyingForExemption.Text != "")
@@ -263,6 +284,8 @@ namespace RentalApplicationCreationTool
 
             // 使用料の免除申請を代入
             reasonForApplyingForExemption = comboBoxReasonForApplyingForExemption.Text;
+
+
 
             // 年を和暦で表示するための準備
             CultureInfo Japanese = new CultureInfo("ja-JP");
