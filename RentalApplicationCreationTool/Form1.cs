@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Globalization;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -174,33 +175,23 @@ namespace RentalApplicationCreationTool
                 return;
             }
 
-            //★時刻が一桁の場合、正常に動作しない
-            //★例：10:00と9:00の比較の場合
-            string sTime = startTime + ":" + startMinutes;
-            string eTime = endTime + ":" + endMinutes;
-            switch (sTime.CompareTo(eTime))
+            // 終了時刻が開始時刻と同じまたは終了時刻が開始時刻よりも前の場合
+            DateTime now = DateTime.Now;
+            DateTime startDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(startTime), Int32.Parse(startMinutes), now.Second);
+            DateTime endDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(endTime), Int32.Parse(endMinutes), now.Second);
+            
+            switch (startDate.CompareTo(endDate))
             {
                 case 0:
                 case 1:
                     MessageBox.Show("終了時刻は開始時刻よりも後にしてください。");
                     return;
             }
-            // 開始時刻が終了時刻よりも後の場合
-            //★★★開始時刻よりも終了時刻のほうが早い場合の処理を追加
 
 
-
-            //★★★★★★以下、必須処理が必要
-
-            //★★★要理解
             // 使用室名を代入
-            //var roomNameList = new List<CheckBox>();
-            //var roomNameList = new List<Control>();
-            //★部屋名を逆順で追加する
-            //★会議室①と会議室②が追加された場合、会議室①②にする
-            //★複数の部屋が選択されている場合、句点で区切るようにする
-
             // 部屋名をTabIndex順にするため、foreachを逆順にしている
+            //★★★要理解
             foreach (CheckBox cb in Enumerable.Reverse(groupBoxRoomName.Controls.OfType<CheckBox>()))
             {
                 AddToList list = new AddToList();
@@ -230,18 +221,6 @@ namespace RentalApplicationCreationTool
                 return;
             }
 
-
-            // 使用室名を確認
-            //if (checkBoxConferenceRoom1.Checked && checkBoxConferenceRoom2.Checked)
-            //{
-            //    MessageBox.Show("会議室①②");
-            //}
-            //if (checkBoxJapaneseStyleRoom1.Checked && checkBoxJapaneseStyleRoom2.Checked)
-            //{
-            //    MessageBox.Show("和室①②");
-            //}
-
-
             // 使用附属設備（冷暖房）の状態
             if (checkBoxAirConditioningAndHeating.Checked)
             {
@@ -270,7 +249,6 @@ namespace RentalApplicationCreationTool
                 MessageBox.Show("その他の設備を入力してください。");
                 return;
             }
-
 
             // 使用料の免除申請の状態
             if (comboBoxReasonForApplyingForExemption.Text != "")
