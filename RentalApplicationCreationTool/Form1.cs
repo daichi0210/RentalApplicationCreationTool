@@ -129,6 +129,7 @@ namespace RentalApplicationCreationTool
 
             // 使用日を代入
             dateOfUse = dateTimePickerDateOfUse.Value.ToString();
+            //★たまに正常に動作しない？
             // 使用日が申請日よりも前の場合
             if (dateOfUse.CompareTo(applicationDate) == -1)
             {
@@ -312,11 +313,22 @@ namespace RentalApplicationCreationTool
             //}
 
 
+            string fileName = DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + "-" + organizationName + ".docx";
+
+            // テンプレートファイルをコピー
+            File.Copy("template\\_mousikomisyo.docx", "application forms\\" + fileName);
+
+
             // テンプレートを開く
             // ★相対パスで指定する
             // ★Wordテンプレートを開くほうが良いかも
+
+            // 現在のディレクトリを取得
+            string currentDirectory = Directory.GetCurrentDirectory();
+
+            // 現在のディレクトリからの相対パスを作成
             // Word ファイル
-            string wordFile = @"D:\dev\windows\src\repos\RentalApplicationCreationTool\RentalApplicationCreationTool\bin\Debug\net8.0-windows\template\mousikomisyo.docx";
+            string wordFile = Path.Combine(currentDirectory, "application forms\\" + fileName);
 
             // Application を宣言する
             Word.Application app = null;
@@ -358,6 +370,9 @@ namespace RentalApplicationCreationTool
                 // 表示する
                 app.Visible = true;
 
+                // 生成したWrod文書を上書き保存する
+                app.ActiveDocument.Save();
+
                 // 印刷設定
                 object copies = "1";
                 object pages = "";
@@ -368,6 +383,7 @@ namespace RentalApplicationCreationTool
                 object oFalse = false;
 
                 // 印刷する
+                /*
                 app.PrintOut(
                     Background: oTrue,
                     Append: oFalse,
@@ -380,6 +396,7 @@ namespace RentalApplicationCreationTool
                     Collate: oTrue,
                     ManualDuplexPrint: oFalse
                 );
+                */
             }
             catch (Exception ex)
             {
