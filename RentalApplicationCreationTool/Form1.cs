@@ -273,7 +273,6 @@ namespace RentalApplicationCreationTool
             // 置換する単語を定義
             Dictionary<string, string> replaceWords = new Dictionary<string, string>()
             {
-                // ★要修正
                 {"%AY%", dateTimePickerApplicationDate.Value.ToString("%y", Japanese)},
                 {"%AM%", dateTimePickerApplicationDate.Value.ToString("%M")},
                 {"%AD%", dateTimePickerApplicationDate.Value.ToString("%d")},
@@ -300,28 +299,11 @@ namespace RentalApplicationCreationTool
                 {"%RFE%", reasonForApplyingForExemption},
             };
 
-
-
-            //★スペースの数を要修正
-            //if (textBoxOtherEquipment.Text != null)
-            //{
-            //    replaceWords.Add("%OTHER_EQUIPMENT%", textBoxOtherEquipment.Text);
-            //}
-            //else
-            //{
-            //    replaceWords.Add("%OTHER_EQUIPMENT%", "");
-            //}
-
-
             string fileName = DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + "-" + organizationName + ".docx";
 
+            // ★Wordテンプレートを開くほうが良いかも
             // テンプレートファイルをコピー
             File.Copy("template\\_mousikomisyo.docx", "application forms\\" + fileName);
-
-
-            // テンプレートを開く
-            // ★相対パスで指定する
-            // ★Wordテンプレートを開くほうが良いかも
 
             // 現在のディレクトリを取得
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -349,9 +331,6 @@ namespace RentalApplicationCreationTool
 
                 // Word の文書ファイルを開く
                 document = documents.Open(wordFile);
-
-                // ★これがないと missing がなくて実行できない
-                //object missing = Type.Missing;
 
                 Word.Find findObject = app.Selection.Find;
 
@@ -406,7 +385,9 @@ namespace RentalApplicationCreationTool
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            FormUserList formUserList = new FormUserList();
+            this.Hide();
+
+            FormUserList formUserList = new FormUserList(this);
             formUserList.ShowDialog();
         }
     }

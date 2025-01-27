@@ -59,6 +59,7 @@
             Controls.Add(button1);
             Name = "FormUserList";
             Text = "使用者一覧";
+            FormClosed += FormUserList_FormClosed;
             ResumeLayout(false);
         }
 
