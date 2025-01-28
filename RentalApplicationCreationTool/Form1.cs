@@ -180,7 +180,7 @@ namespace RentalApplicationCreationTool
             DateTime now = DateTime.Now;
             DateTime startDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(startTime), Int32.Parse(startMinutes), now.Second);
             DateTime endDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(endTime), Int32.Parse(endMinutes), now.Second);
-            
+
             switch (startDate.CompareTo(endDate))
             {
                 case 0:
@@ -389,6 +389,11 @@ namespace RentalApplicationCreationTool
 
             FormUserList formUserList = new FormUserList(this);
             formUserList.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("使用者の登録が完了しました。");
         }
     }
 }
