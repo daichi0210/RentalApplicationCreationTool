@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -7,9 +8,9 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace RentalApplicationCreationTool
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -62,134 +63,38 @@ namespace RentalApplicationCreationTool
             string exemptionApplication;    // 使用料の免除申請
             string reasonForApplyingForExemption;   // 使用料の免除申請理由
 
-
+            // 入力された値の確認
+            if (inputConfirmation() == false)
+            {
+                return;
+            }
 
             // 申請日を代入
             applicationDate = dateTimePickerApplicationDate.Value.ToString();
-
             // 名前を代入
             name = textBoxLastName.Text + "　" + textBoxFirstName.Text;
-            // 苗字または名前が未入力の場合
-            if (textBoxLastName.Text == "")
-            {
-                MessageBox.Show("苗字を入力してください。");
-                return;
-            }
-            else if (textBoxFirstName.Text == "")
-            {
-                MessageBox.Show("名前を入力してください。");
-                return;
-            }
-
             // 電話番号を代入
             telephoneNumber = textBoxTelephoneNumber.Text;
-            // 電話番号が未入力の場合
-            if (textBoxTelephoneNumber.Text == "")
-            {
-                MessageBox.Show("電話番号を入力してください。");
-                return;
-            }
-
             // 住所を代入
             address = textBoxAddress.Text;
-            // 住所が未入力の場合
-            if (textBoxAddress.Text == "")
-            {
-                MessageBox.Show("住所を入力してください。");
-                return;
-            }
-
             // 団体名を代入
             organizationName = textBoxOrganizationName.Text;
-            // 団体名が未入力の場合
-            if (textBoxOrganizationName.Text == "")
-            {
-                MessageBox.Show("団体名を入力してください。");
-                return;
-            }
-
             // 使用目的を代入
             purposeOfUse = textBoxPurposeOfUse.Text;
-            // 使用目的が未入力の場合
-            if (textBoxPurposeOfUse.Text == "")
-            {
-                MessageBox.Show("使用目的を入力してください。");
-                return;
-            }
-
             // 使用人数を代入
             numberOfPeople = textBoxNumberOfPeople.Text;
-            //★数字のみにする
-            // 使用人数が未入力の場合
-            if (textBoxNumberOfPeople.Text == "")
-            {
-                MessageBox.Show("使用人数を入力してください。");
-                return;
-            }
-
             // 使用日を代入
             dateOfUse = dateTimePickerDateOfUse.Value.ToString();
-            //★たまに正常に動作しない？
-            // 使用日が申請日よりも前の場合
-            if (dateOfUse.CompareTo(applicationDate) == -1)
-            {
-                MessageBox.Show("申請日よりも後の日付を選択してください。");
-                return;
-            }
-
             // 使用日の曜日を代入
             dayOfWeek = dateTimePickerDateOfUse.Value.ToString("ddd");
-
             // 開始時刻（時）を代入
             startTime = comboBoxStartTimeHour.Text;
-            // 開始時刻（時）が未選択の場合
-            if (comboBoxStartTimeHour.Text == "")
-            {
-                MessageBox.Show("開始時刻（時）を選択してください。");
-                return;
-            }
-
             // 開始時刻（分）を代入
             startMinutes = comboBoxStartTimeMinutes.Text;
-            // 開始時刻（分）が未選択の場合
-            if (comboBoxStartTimeMinutes.Text == "")
-            {
-                MessageBox.Show("開始時刻（分）を選択してください。");
-                return;
-            }
-
             // 終了時刻（時）を代入
             endTime = comboBoxEndTimeHour.Text;
-            // 終了時刻（時）が未選択の場合
-            if (comboBoxEndTimeHour.Text == "")
-            {
-                MessageBox.Show("終了時刻（時）を選択してください。");
-                return;
-            }
-
             // 終了時刻（分）を代入
             endMinutes = comboBoxEndTimeMinutes.Text;
-            // 終了時刻（分）が未選択の場合
-            if (comboBoxEndTimeMinutes.Text == "")
-            {
-                MessageBox.Show("終了時刻（分）を選択してください。");
-                return;
-            }
-
-            // 終了時刻が開始時刻と同じまたは終了時刻が開始時刻よりも前の場合
-            DateTime now = DateTime.Now;
-            DateTime startDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(startTime), Int32.Parse(startMinutes), now.Second);
-            DateTime endDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(endTime), Int32.Parse(endMinutes), now.Second);
-
-            switch (startDate.CompareTo(endDate))
-            {
-                case 0:
-                case 1:
-                    MessageBox.Show("終了時刻は開始時刻よりも後にしてください。");
-                    return;
-            }
-
-
             // 使用室名を代入
             // 部屋名をTabIndex順にするため、foreachを逆順にしている
             //★★★要理解
@@ -209,19 +114,6 @@ namespace RentalApplicationCreationTool
                     }
                 }
             }
-            // その他が選択されているが部屋名が未入力の場合
-            if (checkBoxOtherRooms.Checked && textBoxOtherRooms.Text == "")
-            {
-                MessageBox.Show("その他の部屋名を入力してください。");
-                return;
-            }
-            // 使用する部屋が選択されていない場合
-            if (roomName == "")
-            {
-                MessageBox.Show("使用する部屋を選択してください。");
-                return;
-            }
-
             // 使用附属設備（冷暖房）の状態
             if (checkBoxAirConditioningAndHeating.Checked)
             {
@@ -231,7 +123,6 @@ namespace RentalApplicationCreationTool
             {
                 airConditioner = "□";
             }
-
             // 使用附属設備（その他）の状態
             if (checkBoxOtherEquipment.Checked)
             {
@@ -241,16 +132,8 @@ namespace RentalApplicationCreationTool
             {
                 otherEquipment = "□";
             }
-
             // 使用附属設備（その他の内容）
             auxiliaryEquipmentUsed = textBoxOtherEquipment.Text;
-            // 使用附属設備（その他）が選択されているが内容が未入力の場合
-            if (checkBoxOtherEquipment.Checked && auxiliaryEquipmentUsed == "")
-            {
-                MessageBox.Show("その他の設備を入力してください。");
-                return;
-            }
-
             // 使用料の免除申請の状態
             if (comboBoxReasonForApplyingForExemption.Text != "")
             {
@@ -260,9 +143,15 @@ namespace RentalApplicationCreationTool
             {
                 exemptionApplication = "□";
             }
-
             // 使用料の免除申請を代入
             reasonForApplyingForExemption = comboBoxReasonForApplyingForExemption.Text;
+
+
+
+            // 入力内容の確認
+            //★もう少しスマートにできると思う
+            contentConfirmation(dateOfUse, applicationDate, startTime, startMinutes, endTime, endMinutes, roomName, auxiliaryEquipmentUsed);
+
 
 
 
@@ -376,13 +265,134 @@ namespace RentalApplicationCreationTool
                     ManualDuplexPrint: oFalse
                 );
                 */
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
+        private bool inputConfirmation()
+        {
+            // 苗字または名前が未入力の場合
+            if (textBoxLastName.Text == "")
+            {
+                MessageBox.Show("苗字を入力してください。");
+                return false;
+            }
+            else if (textBoxFirstName.Text == "")
+            {
+                MessageBox.Show("名前を入力してください。");
+                return false;
+            }
+
+            // 電話番号が未入力の場合
+            if (textBoxTelephoneNumber.Text == "")
+            {
+                MessageBox.Show("電話番号を入力してください。");
+                return false;
+            }
+
+            // 住所が未入力の場合
+            if (textBoxAddress.Text == "")
+            {
+                MessageBox.Show("住所を入力してください。");
+                return false;
+            }
+
+            // 団体名が未入力の場合
+            if (textBoxOrganizationName.Text == "")
+            {
+                MessageBox.Show("団体名を入力してください。");
+                return false;
+            }
+            // 使用目的が未入力の場合
+            if (textBoxPurposeOfUse.Text == "")
+            {
+                MessageBox.Show("使用目的を入力してください。");
+                return false;
+            }
+            // 使用人数が未入力の場合
+            //★数字のみにする
+            if (textBoxNumberOfPeople.Text == "")
+            {
+                MessageBox.Show("使用人数を入力してください。");
+                return false;
+            }
+            // 開始時刻（時）が未選択の場合
+            if (comboBoxStartTimeHour.Text == "")
+            {
+                MessageBox.Show("開始時刻（時）を選択してください。");
+                return false;
+            }
+            // 開始時刻（分）が未選択の場合
+            if (comboBoxStartTimeMinutes.Text == "")
+            {
+                MessageBox.Show("開始時刻（分）を選択してください。");
+                return false;
+            }
+            // 終了時刻（時）が未選択の場合
+            if (comboBoxEndTimeHour.Text == "")
+            {
+                MessageBox.Show("終了時刻（時）を選択してください。");
+                return false;
+            }
+            // 終了時刻（分）が未選択の場合
+            if (comboBoxEndTimeMinutes.Text == "")
+            {
+                MessageBox.Show("終了時刻（分）を選択してください。");
+                return false;
+            }
+
+            // その他が選択されているが部屋名が未入力の場合
+            if (checkBoxOtherRooms.Checked && textBoxOtherRooms.Text == "")
+            {
+                MessageBox.Show("その他の部屋名を入力してください。");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool contentConfirmation(string dateOfUse, string applicationDate, string startTime, string startMinutes, string endTime, string endMinutes, string roomName, string auxiliaryEquipmentUsed)
+        {
+            // 使用日が申請日よりも前の場合
+            //★たまに正常に動作しない？
+            if (dateOfUse.CompareTo(applicationDate) == -1)
+            {
+                MessageBox.Show("申請日よりも後の日付を選択してください。");
+                return false;
+            }
+
+            // 終了時刻が開始時刻と同じまたは終了時刻が開始時刻よりも前の場合
+            DateTime now = DateTime.Now;
+            DateTime startDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(startTime), Int32.Parse(startMinutes), now.Second);
+            DateTime endDate = new DateTime(now.Year, now.Month, now.Day, Int32.Parse(endTime), Int32.Parse(endMinutes), now.Second);
+            
+            switch (startDate.CompareTo(endDate))
+            {
+                case 0:
+                case 1:
+                    MessageBox.Show("終了時刻は開始時刻よりも後にしてください。");
+                    return false;
+            }
+
+            // 使用する部屋が選択されていない場合
+            if (roomName == "")
+            {
+                MessageBox.Show("使用する部屋を選択してください。");
+                return false;
+            }
+
+            // 使用附属設備（その他）が選択されているが内容が未入力の場合
+            if (checkBoxOtherEquipment.Checked && auxiliaryEquipmentUsed == "")
+            {
+                MessageBox.Show("その他の設備を入力してください。");
+                return false;
+            }
+
+            return true;
+        }
         private void buttonUserList_Click(object sender, EventArgs e)
         {
             this.Hide();

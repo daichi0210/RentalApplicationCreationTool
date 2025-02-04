@@ -14,9 +14,9 @@ namespace RentalApplicationCreationTool
 {
     public partial class FormUserList : Form
     {
-        Form1 f1;
+        FormMain f1;
 
-        public FormUserList(Form1 form1)
+        public FormUserList(FormMain form1)
         {
             InitializeComponent();
             f1 = form1;

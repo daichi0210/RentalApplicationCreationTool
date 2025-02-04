@@ -1,6 +1,6 @@
 ﻿namespace RentalApplicationCreationTool
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -552,7 +552,7 @@
             buttonUserList.UseVisualStyleBackColor = true;
             buttonUserList.Click += buttonUserList_Click;
             // 
-            // Form1
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -577,7 +577,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "FormMain";
             Text = "公民館使用申請書　作成ツール";
             groupBoxRoomName.ResumeLayout(false);
             groupBoxRoomName.PerformLayout();
